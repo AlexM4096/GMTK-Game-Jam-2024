@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
     private Vector2 inputVector = new Vector2(0.0f, 0.0f);
 
+    public bool IsActive { get; set; } = true;
+
     void Awake()
     {
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
@@ -17,6 +19,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!IsActive)
+        {
+            inputVector = Vector2.zero;
+            return;
+        }
+        
         inputVector = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
