@@ -1852,7 +1852,7 @@ MonoBehaviour:
   zombieGroup: {fileID: 423283291}
   playerController: {fileID: 1888710723}
   mainZombie: {fileID: 3607564091318638672}
-  transformationTime: 1
+  zombiesRequiredToBeginTransformation: 10
   transformationActiveTime: 5
 --- !u!114 &4860092461873409197
 MonoBehaviour:

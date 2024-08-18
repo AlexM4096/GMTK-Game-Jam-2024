@@ -14,7 +14,7 @@ public class ZombiesController : MonoBehaviour
     private MainZombie mainZombie;
 
     [SerializeField]
-    private float transformationTime = 3f;
+    private int zombiesRequiredToBeginTransformation = 10;
 
     [SerializeField]
     private float transformationActiveTime = 5f;
@@ -31,6 +31,8 @@ public class ZombiesController : MonoBehaviour
     {
         if (!_isBigZombieTransformationActive && Input.GetKeyDown(KeyCode.Space))
         {
+            if (zombieGroup.ZombieCount < (zombiesRequiredToBeginTransformation - 1))
+                return;
             mainZombie.transform.DOKill();
             _bigZombieTransformationCoroutine = StartCoroutine(CallBigZombieAbility());
         }
@@ -38,10 +40,7 @@ public class ZombiesController : MonoBehaviour
         if (_isBigZombieTransformationActive && Input.GetKeyUp(KeyCode.Space))
         {
             StopCoroutine(_bigZombieTransformationCoroutine);
-
             EndBigZombieAbility();
-
-            Debug.Log("BigZombieAbility Transform Aborted");
         }
 
         if (_isBigZombieTransformationActive || _isBigZombieActive)
@@ -49,7 +48,7 @@ public class ZombiesController : MonoBehaviour
             mainZombie.transform.localScale = Vector3.Lerp(
                 mainZombie.transform.localScale,
                 _targetBigZombieScale,
-                Time.deltaTime * 5f
+                Time.deltaTime * 3f
             );
         }
     }
@@ -64,6 +63,8 @@ public class ZombiesController : MonoBehaviour
 
         zombieGroup.ShowZombies();
         zombieGroup.MoveAllZombiesToTheirPoints();
+
+        playerController.IsActive = true;
     }
 
     public IEnumerator CallBigZombieAbility()
@@ -72,8 +73,6 @@ public class ZombiesController : MonoBehaviour
             yield break;
 
         _isBigZombieTransformationActive = true;
-
-        Debug.Log("BigZombieAbility Started");
 
         mainZombie.Sprite.sortingOrder += 1;
         zombieGroup.MoveAllZombiesToCenter();
@@ -93,15 +92,15 @@ public class ZombiesController : MonoBehaviour
         }
 
         zombieGroup.HideZombies();
+        yield return null;
+
         _isBigZombieTransformationActive = false;
+        _isBigZombieActive = true;
         playerController.IsActive = true;
 
-        _isBigZombieActive = true;
         yield return new WaitForSeconds(transformationActiveTime);
 
         _isBigZombieActive = false;
         EndBigZombieAbility();
-
-        Debug.Log("BigZombieAbility Ended");
     }
 }
