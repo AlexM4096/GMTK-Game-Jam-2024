@@ -30,6 +30,15 @@ public class BigZombieAbilityStatus : MonoBehaviour
 
     private void Start()
     {
+        if (bigZombieAbility == null)
+        {
+            bigZombieAbility = FindFirstObjectByType<BigZombieAbility>();
+            if (bigZombieAbility == null)
+            {
+                throw new System.Exception("Can't find BigZombieAbility");
+            }
+        }
+
         AbilityStatus.OnCooldownChanged += OnCooldownChanged;
         AbilityStatus.OnActiveChanged += OnActiveChanged;
         OnCooldownChanged();
