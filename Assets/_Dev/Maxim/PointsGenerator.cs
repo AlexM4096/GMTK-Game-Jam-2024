@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PointsGenerator : MonoBehaviour
 {
@@ -47,8 +48,13 @@ public class PointsGenerator : MonoBehaviour
             {
                 var angle = angleStep * i;
 
-                float x = realRadius * Mathf.Cos(angle);
-                float y = realRadius * Mathf.Sin(angle);
+                float offsetRadius = radius * 0.8f;
+                float offsetRandomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+
+                float x =
+                    realRadius * Mathf.Cos(angle) + offsetRadius * Mathf.Cos(offsetRandomAngle);
+                float y =
+                    realRadius * Mathf.Sin(angle) + offsetRadius * Mathf.Sin(offsetRandomAngle);
 
                 CreatePoint(new Vector3(x, y, 0));
             }

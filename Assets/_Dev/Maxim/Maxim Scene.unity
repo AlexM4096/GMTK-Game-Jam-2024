@@ -529,7 +529,6 @@ GameObject:
   - component: {fileID: 423283288}
   - component: {fileID: 423283291}
   - component: {fileID: 423283287}
-  - component: {fileID: 423283292}
   - component: {fileID: 423283295}
   - component: {fileID: 423283294}
   - component: {fileID: 423283293}
@@ -585,21 +584,6 @@ MonoBehaviour:
   pointsGenerator: {fileID: 423283287}
   zombiesContainer: {fileID: 1707528770}
   offCenter: {fileID: 1086390106}
---- !u!114 &423283292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423283286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 616f3b3a15057614bb5edee4217ef555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialZombieCount: 10
-  zombie: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
-  zombieGroup: {fileID: 423283291}
 --- !u!58 &423283293
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1644,6 +1628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1707528770}
+  - component: {fileID: 1707528771}
   m_Layer: 0
   m_Name: ZombiesContainer
   m_TagString: Untagged
@@ -1668,6 +1653,21 @@ Transform:
   - {fileID: 423283288}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707528771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707528769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616f3b3a15057614bb5edee4217ef555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialZombieCount: 10
+  zombie: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+  zombieGroup: {fileID: 423283291}
 --- !u!1001 &2122655633
 PrefabInstance:
   m_ObjectHideFlags: 0

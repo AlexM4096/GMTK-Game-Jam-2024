@@ -43,7 +43,7 @@ public class ZombieCreator : MonoBehaviour
     private void CreateZombie()
     {
         var createdZombie = Instantiate(zombie);
-        createdZombie.Sprite.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        // createdZombie.Sprite.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         zombieGroup.AddZombieToGroup(createdZombie);
     }
 }
