@@ -6,14 +6,14 @@ public partial class BigZombieAbility
     public class CrowdState : StateBase
     {
         private readonly StateMachine _fsm;
-        private readonly MainZombie _mainZombie;
+        private readonly Zombie _mainZombie;
         private readonly BigZombieAbilityConfig _abilityConfig;
         private readonly ZombieGroup _zombieGroup;
         private readonly AbilityStatus _abilityStatus;
 
         public CrowdState(
             StateMachine fsm,
-            MainZombie mainZombie,
+            Zombie mainZombie,
             AbilityStatus abilityStatus,
             BigZombieAbilityConfig abilityConfig,
             ZombieGroup zombieGroup

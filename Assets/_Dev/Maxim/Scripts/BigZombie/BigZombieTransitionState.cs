@@ -8,12 +8,12 @@ public partial class BigZombieAbility
         private readonly ZombieGroup _zombieGroup;
         private readonly PlayerController _playerController;
         private readonly BigZombieAbilityConfig _abilityConfig;
-        private readonly MainZombie _mainZombie;
+        private readonly Zombie _mainZombie;
         private readonly StateMachine _fsm;
 
         public BigZombieTransitionState(
             StateMachine fsm,
-            MainZombie mainZombie,
+            Zombie mainZombie,
             ZombieGroup zombieGroup,
             PlayerController playerController,
             BigZombieAbilityConfig abilityConfig

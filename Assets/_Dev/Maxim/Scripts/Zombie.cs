@@ -15,6 +15,9 @@ public class Zombie : MonoBehaviour
     [field: SerializeField]
     public AIPath AiPath { get; private set; }
 
+    [field: SerializeField]
+    public ZombieEater ZombieEater { get; private set; }
+
     private void Update()
     {
         Animator.SetFloat("speed", AiPath.velocity.magnitude);

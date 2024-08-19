@@ -52,14 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainZombie
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+    - target: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: <ZombieEater>k__BackingField
+      value: 
+      objectReference: {fileID: 2424841027001705900}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 8006291010485277972}
     - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2468477543645800765}
@@ -75,30 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794c8dbdf92b36247a8e0975d8442fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &4274494674211689482 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4820005108589807228, guid: dc8f0faa552426249b09952b4288109b, type: 3}
-  m_PrefabInstance: {fileID: 8770222997848953462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5451241437124131331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
   m_PrefabInstance: {fileID: 8770222997848953462}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8006291010485277972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5451241437124131331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a163e14a8b013e40b59cde08edbd3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 4274494674211689482}
-  <ZombieEater>k__BackingField: {fileID: 2424841027001705900}
 --- !u!114 &2468477543645800765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieGroup: {fileID: 0}
   playerController: {fileID: 0}
-  mainZombie: {fileID: 8006291010485277972}
+  mainZombie: {fileID: 5491008501929465115}
   abilityConfig:
     ZombiesRequiredToBeginTransformation: 10
     AdditionalScalePerZombie: 0.1
@@ -122,3 +103,14 @@ MonoBehaviour:
     AdditionalAbilityDurationPerZombie: 0.5
     MaxAbilityDuration: 30
     AbilityCooldown: 5
+--- !u!114 &5491008501929465115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+  m_PrefabInstance: {fileID: 8770222997848953462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451241437124131331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1114181afe301254eb3e382ff349bf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

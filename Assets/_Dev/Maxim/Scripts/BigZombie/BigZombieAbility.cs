@@ -10,7 +10,7 @@ public partial class BigZombieAbility : MonoBehaviour
     private PlayerController playerController;
 
     [SerializeField]
-    private MainZombie mainZombie;
+    private Zombie mainZombie;
 
     [SerializeField]
     private BigZombieAbilityConfig abilityConfig;

@@ -5,14 +5,14 @@ public partial class BigZombieAbility
 {
     public class BigZombieState : StateBase
     {
-        private readonly MainZombie _mainZombie;
+        private readonly Zombie _mainZombie;
         private readonly ZombieGroup _zombieGroup;
         private readonly AbilityStatus _abilityStatus;
         private readonly BigZombieAbilityConfig _abilityConfig;
         private Vector3 _targetBigZombieScale;
 
         public BigZombieState(
-            MainZombie mainZombie,
+            Zombie mainZombie,
             ZombieGroup zombieGroup,
             AbilityStatus abilityStatus,
             BigZombieAbilityConfig abilityConfig
