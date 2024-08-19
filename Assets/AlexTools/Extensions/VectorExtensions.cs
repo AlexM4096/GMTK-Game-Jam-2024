@@ -188,6 +188,15 @@ namespace AlexTools.Extensions
 
         #endregion
 
+        public static Vector2 ComponentMultiply(this Vector2 dividend, Vector2 divisor) => new(
+                dividend.x * divisor.x,
+                dividend.y * divisor.y);
+
+        public static Vector3 ComponentMultiply(this Vector3 dividend, Vector3 divisor) => new(
+                dividend.x * divisor.x,
+                dividend.y * divisor.y,
+                dividend.z * divisor.z);
+
         #region Scale
 
         public static Vector2 Scale(this Vector2 vector2, float x, float y = 1) => 

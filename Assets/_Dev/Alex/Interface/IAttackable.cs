@@ -7,6 +7,7 @@ namespace Alex
     {
         bool CanAttack { get; set; }
         float Damage { get; set; }
+        ITargetable Target { get; set; }
 
         void Attack() { }
 
