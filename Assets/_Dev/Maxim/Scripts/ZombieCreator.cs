@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ZombieCreator : MonoBehaviour
@@ -40,10 +41,29 @@ public class ZombieCreator : MonoBehaviour
 #endif
 
     [ContextMenu("Create Zombie")]
-    private void CreateZombie()
+    public void CreateZombie()
     {
         var createdZombie = Instantiate(zombie);
         // createdZombie.Sprite.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         zombieGroup.AddZombieToGroup(createdZombie);
+
+        var zombieEater = createdZombie.GetComponentInChildren<ZombieEater>();
+        if (zombieEater != null)
+        {
+            zombieEater.ZombieCreator = this;
+        }
+    }
+
+    public void CreateZombie(Vector3 position)
+    {
+        var createdZombie = Instantiate(zombie, position, Quaternion.identity);
+        createdZombie.transform.position = position;
+        zombieGroup.AddZombieToGroup(createdZombie);
+
+        var zombieEater = createdZombie.GetComponentInChildren<ZombieEater>();
+        if (zombieEater != null)
+        {
+            zombieEater.ZombieCreator = this;
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -87,5 +88,10 @@ public class ZombieGroup : MonoBehaviour
     public int GetReachedEndOfPath()
     {
         return _zombies.Count(z => z.AiPath.reachedEndOfPath);
+    }
+
+    public void EnableScan()
+    {
+        _zombies.ForEach(z => z.GetComponentInChildren<ZombieEater>().StartScan());
     }
 }

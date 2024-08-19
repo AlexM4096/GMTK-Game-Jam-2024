@@ -64,6 +64,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2468477543645800765}
   m_SourcePrefab: {fileID: 100100000, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+--- !u!114 &2424841027001705900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6345804183312365530, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+  m_PrefabInstance: {fileID: 8770222997848953462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794c8dbdf92b36247a8e0975d8442fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &4274494674211689482 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4820005108589807228, guid: dc8f0faa552426249b09952b4288109b, type: 3}
@@ -87,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Sprite>k__BackingField: {fileID: 4274494674211689482}
+  <ZombieEater>k__BackingField: {fileID: 2424841027001705900}
 --- !u!114 &2468477543645800765
 MonoBehaviour:
   m_ObjectHideFlags: 0

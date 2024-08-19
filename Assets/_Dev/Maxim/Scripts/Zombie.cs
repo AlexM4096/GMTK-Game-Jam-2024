@@ -10,5 +10,8 @@ public class Zombie : MonoBehaviour
     public SpriteRenderer Sprite { get; private set; }
 
     [field: SerializeField]
+    public Animator Animator { get; private set; }
+
+    [field: SerializeField]
     public AIPath AiPath { get; private set; }
 }
