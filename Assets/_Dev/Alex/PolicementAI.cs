@@ -15,9 +15,9 @@ public class PolicementAI : MonoBehaviour
     private const string IsReloadingKey = "IsReloading";
 
     private const int AmmoInClip = 12;
-    private const float AttackDistance = 4f;
+    private const float AttackDistance = 7f;
     private const float ReloadTime = 2f;
-    private const float TargetCloseRadius = 2.5f;
+    private const float TargetCloseRadius = 5f;
 
     [SerializeField] private AIPath aiPath;
 
@@ -28,6 +28,11 @@ public class PolicementAI : MonoBehaviour
     private IAttackable _attackable;
 
     private Blackboard Blackboard => _behaviorTree.Blackboard;
+
+    private void Awake( ) 
+    { 
+        _attackable = GetComponent<IAttackable>();
+    }
 
     private void Start()
     {
@@ -53,24 +58,35 @@ public class PolicementAI : MonoBehaviour
             new Service(0.125f, UpdateBlackboard,
                 new Selector(
                     new BlackboardCondition(HasTargetKey, Operator.IS_EQUAL, false, Stops.SELF,
-                        new Action(() => { Blackboard[TargetKey] = SelectTarget(); })
+                        new Action(SetTarget)
                     ),
                     new Failer(new Action(() => { _moveable.CanMove = true; })),
                     new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, TargetCloseRadius, Stops.IMMEDIATE_RESTART,
-                        new Action(() => _moveable.MoveTo(Blackboard.Get<Vector3>(DirectionToTargetKey) * -10))
+                        new Action(() =>
+                        {
+                            var position = Blackboard.Get<Vector3>(DirectionToTargetKey) * -10;
+                            _moveable.MoveAndLook(position);
+                        })
                     ),
                     new BlackboardCondition(DistanceToTargetKey, Operator.IS_GREATER, AttackDistance, Stops.IMMEDIATE_RESTART,
-                        new Action(() => _moveable.MoveTo(Blackboard.Get<Vector3>(TargetPositionKey)))
+                        new Action(() =>
+                        {
+                            var position = Blackboard.Get<Vector3>(TargetPositionKey);
+                            _moveable.MoveAndLook(position);
+                        })
                     ),
                     new Failer(new Action(() => { _moveable.CanMove = false; })),
                     new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, AttackDistance, Stops.IMMEDIATE_RESTART,
                         new Selector(
                             new BlackboardCondition(AmmoAmountKey, Operator.IS_GREATER, 0, Stops.IMMEDIATE_RESTART,
                                 new Cooldown(0.3f,
-                                    new Sequence(
-                                        new Action(() => { Blackboard[AmmoAmountKey] = Blackboard.Get<int>(AmmoAmountKey) - 1; }),
-                                        new Action(() => _attackable?.Attack())
-                                    )
+                                    new Action(() =>
+                                        {
+                                            _moveable.LookAt(Blackboard.Get<Vector3>(TargetPositionKey));
+                                            Blackboard[AmmoAmountKey] = Blackboard.Get<int>(AmmoAmountKey) - 1;
+                                            _attackable.Attack();
+                                        }
+                                    )                       
                                 )
                             ),
                             new Sequence(
@@ -86,7 +102,7 @@ public class PolicementAI : MonoBehaviour
 
     private void UpdateBlackboard()
     {
-        Transform target = Blackboard.Get<Transform>(TargetKey);
+        ITargetable target = Blackboard.Get<ITargetable>(TargetKey);
         Blackboard[TargetKey] = target;
 
         bool isTargetNull = target == null;
@@ -94,7 +110,7 @@ public class PolicementAI : MonoBehaviour
 
         if (isTargetNull) return;
 
-        Vector3 targetPosition = target.position;
+        Vector3 targetPosition = target.Position;
         Blackboard[TargetPositionKey] = targetPosition;
 
         Vector3 vectorToTarget = targetPosition - transform.position;
@@ -107,9 +123,16 @@ public class PolicementAI : MonoBehaviour
         Blackboard[DistanceToTargetKey] = distanceToTarget;
     }
 
-    private Transform SelectTarget()
+    private ITargetable SelectTarget()
     {
-        return _playerBlackboard.Get<Transform>(Player.TransformKey);
+        return _playerBlackboard.Get<ITargetable>(Player.Target);
+    }
+
+    private void SetTarget()
+    {
+        var target = SelectTarget();
+        Blackboard[TargetKey] = target;
+        _attackable.Target = target;
     }
 
 #if UNITY_EDITOR
@@ -120,6 +143,9 @@ public class PolicementAI : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, TargetCloseRadius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(_moveable.Position, _moveable.Position + _moveable.Velocity);
     }
 #endif
 

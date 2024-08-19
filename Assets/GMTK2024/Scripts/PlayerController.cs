@@ -1,13 +1,17 @@
+using Alex;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ITargetable
 {
     public Vector2 MovementSpeed = new Vector2(10.0f, 10.0f);
     private new Rigidbody2D rigidbody2D;
     private Vector2 inputVector = new Vector2(0.0f, 0.0f);
 
     public bool IsActive { get; set; } = true;
+
+    public Vector3 Position => transform.position;
+    public Vector3 Velocity => rigidbody2D.velocity;
 
     void Awake()
     {
