@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638596632631698339
+  platformSettingsDirtyTick: 638596941935694387
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -143,15 +143,15 @@ ScriptedImporter:
     uvTransform: {x: 48, y: 125}
   - name: zombie_Frame_1
     originalName: 
-    pivot: {x: 0.5666667, y: -0.3018868}
+    pivot: {x: 0.47826087, y: -0.30769232}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 136
-      width: 30
-      height: 53
+      x: 82
+      y: 126
+      width: 23
+      height: 52
     spriteID: 52064f74e59954e44a1cbc5fc75df6b7
     spriteBone: []
     spriteOutline: []
@@ -160,48 +160,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 136}
+    uvTransform: {x: 82, y: 126}
   - name: zombie_Frame_2
-    originalName: 
-    pivot: {x: 0.516129, y: -0.3137255}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 197
-      width: 31
-      height: 51
-    spriteID: d647cfab92f9bb343a4e5a7321efd0b0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 197}
-  - name: zombie_Frame_3
-    originalName: 
-    pivot: {x: 0.42307693, y: -0.3137255}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 48
-      y: 66
-      width: 26
-      height: 51
-    spriteID: ab04d3ad52f5cf6419e9c6f8037022bc
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 48, y: 66}
-  - name: zombie_Frame_4
     originalName: 
     pivot: {x: 0.47826087, y: -0.3018868}
     alignment: 9
@@ -212,7 +172,7 @@ ScriptedImporter:
       y: 186
       width: 23
       height: 53
-    spriteID: 16672d94ee38f4b4f8f692c29192ca3e
+    spriteID: d647cfab92f9bb343a4e5a7321efd0b0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +181,107 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 48, y: 186}
+  - name: zombie_Frame_3
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.3018868}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 4
+      width: 23
+      height: 53
+    spriteID: ab04d3ad52f5cf6419e9c6f8037022bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 4}
+  - name: zombie_Frame_4
+    originalName: 
+    pivot: {x: 0.5666667, y: -0.3018868}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 136
+      width: 30
+      height: 53
+    spriteID: 16672d94ee38f4b4f8f692c29192ca3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 136}
   - name: zombie_Frame_5
+    originalName: 
+    pivot: {x: 0.516129, y: -0.3137255}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 197
+      width: 31
+      height: 51
+    spriteID: ec79c638e90022a468b1d7e31a0eb5d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 197}
+  - name: zombie_Frame_6
+    originalName: 
+    pivot: {x: 0.42307693, y: -0.3137255}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 66
+      width: 26
+      height: 51
+    spriteID: 5430caa522f6e964daa4c9b6c482fd19
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 66}
+  - name: zombie_Frame_7
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.3018868}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 65
+      width: 23
+      height: 53
+    spriteID: 9d446d9f11af5914692a0beaf365c393
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 65}
+  - name: zombie_Frame_8
     originalName: 
     pivot: {x: 0.42307693, y: -0.2962963}
     alignment: 9
@@ -232,7 +292,7 @@ ScriptedImporter:
       y: 4
       width: 26
       height: 54
-    spriteID: ec79c638e90022a468b1d7e31a0eb5d7
+    spriteID: 82ab184408fb5274ba9980e7b99f1c6b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 48, y: 4}
-  - name: zombie_Frame_6
+  - name: zombie_Frame_9
     originalName: 
     pivot: {x: 0.37931034, y: -0.25396827}
     alignment: 9
@@ -252,7 +312,7 @@ ScriptedImporter:
       y: 65
       width: 29
       height: 63
-    spriteID: 5430caa522f6e964daa4c9b6c482fd19
+    spriteID: c592457a64ccf9a41ba5d079bb223590
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +321,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 65}
-  - name: zombie_Frame_7
+  - name: zombie_Frame_10
     originalName: 
     pivot: {x: 0.30555555, y: -0.3018868}
     alignment: 9
@@ -272,7 +332,7 @@ ScriptedImporter:
       y: 4
       width: 36
       height: 53
-    spriteID: 9d446d9f11af5914692a0beaf365c393
+    spriteID: 369e94ffd2cd75b4693150b6324a422f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,59 +361,83 @@ ScriptedImporter:
     - name: zombie_Frame_1
       frameIndex: 1
       cellRect:
-        x: 15
+        x: 21
         y: 16
-        width: 30
-        height: 53
+        width: 23
+        height: 52
       spriteId: 52064f74e59954e44a1cbc5fc75df6b7
     - name: zombie_Frame_2
       frameIndex: 2
       cellRect:
-        x: 16
+        x: 21
         y: 16
-        width: 31
-        height: 51
+        width: 23
+        height: 53
       spriteId: d647cfab92f9bb343a4e5a7321efd0b0
     - name: zombie_Frame_3
       frameIndex: 3
       cellRect:
         x: 21
         y: 16
-        width: 26
-        height: 51
+        width: 23
+        height: 53
       spriteId: ab04d3ad52f5cf6419e9c6f8037022bc
     - name: zombie_Frame_4
       frameIndex: 4
       cellRect:
-        x: 21
+        x: 15
         y: 16
-        width: 23
+        width: 30
         height: 53
       spriteId: 16672d94ee38f4b4f8f692c29192ca3e
     - name: zombie_Frame_5
       frameIndex: 5
       cellRect:
-        x: 21
+        x: 16
         y: 16
-        width: 26
-        height: 54
+        width: 31
+        height: 51
       spriteId: ec79c638e90022a468b1d7e31a0eb5d7
     - name: zombie_Frame_6
       frameIndex: 6
       cellRect:
         x: 21
         y: 16
-        width: 29
-        height: 63
+        width: 26
+        height: 51
       spriteId: 5430caa522f6e964daa4c9b6c482fd19
     - name: zombie_Frame_7
       frameIndex: 7
       cellRect:
         x: 21
         y: 16
-        width: 36
+        width: 23
         height: 53
       spriteId: 9d446d9f11af5914692a0beaf365c393
+    - name: zombie_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 21
+        y: 16
+        width: 26
+        height: 54
+      spriteId: 82ab184408fb5274ba9980e7b99f1c6b
+    - name: zombie_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 21
+        y: 16
+        width: 29
+        height: 63
+      spriteId: c592457a64ccf9a41ba5d079bb223590
+    - name: zombie_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 21
+        y: 16
+        width: 36
+        height: 53
+      spriteId: 369e94ffd2cd75b4693150b6324a422f
     linkedCells: []
     parentIndex: -1
   platformSettings:

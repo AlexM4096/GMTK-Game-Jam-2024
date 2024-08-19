@@ -54,8 +54,8 @@ public class ZombieEater : MonoBehaviour
                     if (_targets[0] != null)
                     {
                         if (
-                            Vector3.Distance(transform.position, _targets[0].transform.position)
-                            < radius
+                            Vector2.Distance(transform.position, _targets[0].transform.position)
+                            <= radius + 0.1f
                         )
                         {
                             ZombieCreator.CreateZombie(_targets[0].transform.position);
@@ -64,9 +64,6 @@ public class ZombieEater : MonoBehaviour
                     }
 
                     yield return new WaitForSeconds(0.3f);
-
-                    // TODO Replace on "idle" animation
-                    zombieAnimator.Play("walk");
                 }
             }
             yield return waitTime;

@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DestinationSetter>k__BackingField: {fileID: 5942863810638805043}
   <Sprite>k__BackingField: {fileID: 4820005108589807228}
-  <Animator>k__BackingField: {fileID: 0}
+  <Animator>k__BackingField: {fileID: 6965685419435236176}
   <AiPath>k__BackingField: {fileID: 1284188830876877960}
 --- !u!114 &2701305413133828547
 MonoBehaviour:
@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 11ae2e86ba5281a4dbcd3ed7aea7976a, type: 2}
     - target: {fileID: 3626916397498700004, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
       propertyPath: m_FlipX
       value: 0

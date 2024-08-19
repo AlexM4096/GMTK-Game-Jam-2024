@@ -40,7 +40,6 @@ public class BigZombieAbilityStatus : MonoBehaviour
         if (bigZombieAbility != null)
         {
             AbilityStatus.OnCooldownChanged -= OnCooldownChanged;
-
             AbilityStatus.OnActiveChanged -= OnActiveChanged;
         }
     }

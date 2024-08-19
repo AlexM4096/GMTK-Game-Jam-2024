@@ -17,6 +17,7 @@ public partial class BigZombieAbility : MonoBehaviour
 
     private StateMachine _fsm;
     public AbilityStatus AbilityStatus { get; private set; } = new();
+    public BigZombieAbilityConfig AbilityConfig => abilityConfig;
 
     private const string CROWD = "Crowd";
     private const string BIG_ZOMBIE = "BigZombie";
