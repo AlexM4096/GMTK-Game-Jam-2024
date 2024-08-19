@@ -8,6 +8,9 @@ public class ZombieGroup : MonoBehaviour
     private PointsGenerator pointsGenerator;
 
     [SerializeField]
+    private Transform zombiesContainer;
+
+    [SerializeField]
     private Transform offCenter;
 
     public int ZombieCount => _zombies.Count;
@@ -23,6 +26,11 @@ public class ZombieGroup : MonoBehaviour
         _zombies.Add(zombie);
         _zombiePoints = pointsGenerator.GeneratePoints(_zombies.Count);
         SetZombieOnPoints();
+
+        if (zombiesContainer != null)
+        {
+            zombie.transform.SetParent(zombiesContainer);
+        }
     }
 
     public void RemoveZombieFromGroup(Zombie zombie)
