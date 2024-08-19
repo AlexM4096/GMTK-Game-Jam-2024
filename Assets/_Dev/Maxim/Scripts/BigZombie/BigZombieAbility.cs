@@ -16,6 +16,7 @@ public partial class BigZombieAbility : MonoBehaviour
     private BigZombieAbilityConfig abilityConfig;
 
     private StateMachine _fsm;
+    public AbilityStatus AbilityStatus { get; private set; } = new();
 
     private const string CROWD = "Crowd";
     private const string BIG_ZOMBIE = "BigZombie";
@@ -25,7 +26,13 @@ public partial class BigZombieAbility : MonoBehaviour
     {
         _fsm = new StateMachine();
 
-        var crowdState = new CrowdState(_fsm, mainZombie, abilityConfig, zombieGroup);
+        var crowdState = new CrowdState(
+            _fsm,
+            mainZombie,
+            AbilityStatus,
+            abilityConfig,
+            zombieGroup
+        );
 
         _fsm.AddState(CROWD, crowdState);
         _fsm.AddState(
@@ -38,7 +45,10 @@ public partial class BigZombieAbility : MonoBehaviour
                 abilityConfig
             )
         );
-        _fsm.AddState(BIG_ZOMBIE, new BigZombieState(mainZombie, zombieGroup, abilityConfig));
+        _fsm.AddState(
+            BIG_ZOMBIE,
+            new BigZombieState(mainZombie, zombieGroup, AbilityStatus, abilityConfig)
+        );
 
         _fsm.AddTransition(CROWD, BIG_ZOMBIE_TRANSITION);
         _fsm.AddTransition(BIG_ZOMBIE_TRANSITION, CROWD);
@@ -46,7 +56,7 @@ public partial class BigZombieAbility : MonoBehaviour
         _fsm.AddTransition(
             BIG_ZOMBIE,
             CROWD,
-            afterTransition: (s) => crowdState.IsAbilityInCooldown = true
+            afterTransition: (s) => AbilityStatus.InCooldown = true
         );
 
         _fsm.SetStartState(CROWD);

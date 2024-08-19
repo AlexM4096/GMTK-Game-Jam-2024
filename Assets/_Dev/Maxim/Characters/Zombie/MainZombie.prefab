@@ -106,7 +106,7 @@ MonoBehaviour:
     ZombiesRequiredToBeginTransformation: 10
     AdditionalScalePerZombie: 0.1
     MaxScale: 10
-    StartAbilityDuration: 3
-    AdditionalAbilityDurationPerZombie: 0.1
-    MaxAbilityDuration: 10
+    StartAbilityDuration: 5
+    AdditionalAbilityDurationPerZombie: 0.5
+    MaxAbilityDuration: 30
     AbilityCooldown: 5

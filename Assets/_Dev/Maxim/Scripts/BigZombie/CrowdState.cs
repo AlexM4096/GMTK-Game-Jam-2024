@@ -9,13 +9,12 @@ public partial class BigZombieAbility
         private readonly MainZombie _mainZombie;
         private readonly BigZombieAbilityConfig _abilityConfig;
         private readonly ZombieGroup _zombieGroup;
-
-        public bool IsAbilityInCooldown;
-        private float _timeElapsed;
+        private readonly AbilityStatus _abilityStatus;
 
         public CrowdState(
             StateMachine fsm,
             MainZombie mainZombie,
+            AbilityStatus abilityStatus,
             BigZombieAbilityConfig abilityConfig,
             ZombieGroup zombieGroup
         )
@@ -24,18 +23,19 @@ public partial class BigZombieAbility
             _fsm = fsm;
             _mainZombie = mainZombie;
             _zombieGroup = zombieGroup;
+            _abilityStatus = abilityStatus;
             _abilityConfig = abilityConfig;
         }
 
         public override void OnEnter()
         {
-            _timeElapsed = 0f;
+            _abilityStatus.CooldownRemaining = _abilityConfig.AbilityCooldown;
             _zombieGroup.MoveAllZombiesToTheirPoints();
         }
 
         public override void OnLogic()
         {
-            if (!IsAbilityInCooldown && Input.GetKeyDown(KeyCode.Space))
+            if (!_abilityStatus.InCooldown && Input.GetKeyDown(KeyCode.Space))
             {
                 if (
                     _zombieGroup.ZombieCount
@@ -46,12 +46,12 @@ public partial class BigZombieAbility
                 fsm.StateCanExit();
             }
 
-            if (IsAbilityInCooldown)
+            if (_abilityStatus.InCooldown)
             {
-                _timeElapsed += Time.deltaTime;
-                if (_timeElapsed >= _abilityConfig.AbilityCooldown)
+                _abilityStatus.CooldownRemaining -= Time.deltaTime;
+                if (_abilityStatus.CooldownRemaining <= 0)
                 {
-                    IsAbilityInCooldown = false;
+                    _abilityStatus.InCooldown = false;
                 }
             }
 

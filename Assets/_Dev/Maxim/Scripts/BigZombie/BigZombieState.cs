@@ -7,28 +7,29 @@ public partial class BigZombieAbility
     {
         private readonly MainZombie _mainZombie;
         private readonly ZombieGroup _zombieGroup;
+        private readonly AbilityStatus _abilityStatus;
         private readonly BigZombieAbilityConfig _abilityConfig;
-        private float _timeElapsed;
-        private float _abilityDuration;
         private Vector3 _targetBigZombieScale;
 
         public BigZombieState(
             MainZombie mainZombie,
             ZombieGroup zombieGroup,
+            AbilityStatus abilityStatus,
             BigZombieAbilityConfig abilityConfig
         )
             : base(needsExitTime: true, isGhostState: false)
         {
             _mainZombie = mainZombie;
             _zombieGroup = zombieGroup;
+            _abilityStatus = abilityStatus;
             _abilityConfig = abilityConfig;
         }
 
         public override void OnEnter()
         {
-            _timeElapsed = 0f;
             _zombieGroup.HideZombies();
-            _abilityDuration = Mathf.Min(
+            
+            _abilityStatus.ActiveRemaining = Mathf.Min(
                 _abilityConfig.StartAbilityDuration
                     + (
                         _zombieGroup.ZombieCount
@@ -36,6 +37,8 @@ public partial class BigZombieAbility
                     ) * _abilityConfig.AdditionalAbilityDurationPerZombie,
                 _abilityConfig.MaxAbilityDuration
             );
+            _abilityStatus.IsActive = true;
+
             _targetBigZombieScale =
                 Vector3.one
                 * Mathf.Min(
@@ -46,15 +49,15 @@ public partial class BigZombieAbility
 
         public override void OnLogic()
         {
-            _timeElapsed += Time.deltaTime;
-
             _mainZombie.transform.localScale = Vector3.Lerp(
                 _mainZombie.transform.localScale,
                 _targetBigZombieScale,
                 Time.deltaTime * 3f
             );
 
-            if (_timeElapsed >= _abilityDuration)
+            _abilityStatus.ActiveRemaining -= Time.deltaTime;
+
+            if (_abilityStatus.ActiveRemaining <= 0)
             {
                 fsm.StateCanExit();
             }
@@ -62,6 +65,7 @@ public partial class BigZombieAbility
 
         public override void OnExit()
         {
+            _abilityStatus.IsActive = false;
             _zombieGroup.ShowZombies();
         }
     }
