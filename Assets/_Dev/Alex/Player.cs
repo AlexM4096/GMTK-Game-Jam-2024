@@ -1,20 +1,25 @@
+using Alex;
 using NPBehave;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public const string BlackboardKey = "player";
-    public const string PositionKey = "position";
+    public const string TransformKey = "transform";
 
     private Blackboard _blackboard;
 
-    private void Start()
+    private void Awake()
     {
         _blackboard = UnityContext.GetSharedBlackboard(BlackboardKey);
+        _blackboard[TransformKey] = transform;
     }
 
-    private void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        _blackboard[PositionKey] = transform.position;
+        if (!collision.gameObject.TryGetComponent<Flyweight.Flyweight>(out var flyweight))
+            return;
+
+        flyweight.ReleaseSelf();
     }
 }
