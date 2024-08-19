@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8770222997848953462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239572133579906801, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: m_Name
+      value: MainZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      propertyPath: <ZombieEater>k__BackingField
+      value: 
+      objectReference: {fileID: 2424841027001705900}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2468477543645800765}
+  m_SourcePrefab: {fileID: 100100000, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+--- !u!114 &2424841027001705900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6345804183312365530, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+  m_PrefabInstance: {fileID: 8770222997848953462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794c8dbdf92b36247a8e0975d8442fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5451241437124131331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+  m_PrefabInstance: {fileID: 8770222997848953462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2468477543645800765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451241437124131331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fd03bfe088e79498f2d6d6d1ed755b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieGroup: {fileID: 0}
+  playerController: {fileID: 0}
+  mainZombie: {fileID: 5491008501929465115}
+  abilityConfig:
+    ZombiesRequiredToBeginTransformation: 10
+    AdditionalScalePerZombie: 0.1
+    MaxScale: 10
+    StartAbilityDuration: 5
+    AdditionalAbilityDurationPerZombie: 0.5
+    MaxAbilityDuration: 30
+    AbilityCooldown: 5
+--- !u!114 &5491008501929465115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+  m_PrefabInstance: {fileID: 8770222997848953462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451241437124131331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1114181afe301254eb3e382ff349bf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
