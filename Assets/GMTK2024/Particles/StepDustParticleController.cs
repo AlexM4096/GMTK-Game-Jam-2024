@@ -1,12 +1,13 @@
+using Pathfinding;
 using UnityEngine;
 
 public class StepDustParticleController : MonoBehaviour
 {
 
-    [SerializeField] GameObject particlePrefab;
+    //[SerializeField] GameObject particlePrefab;
 
     private ParticleSystem _particleSystem;
-    private Rigidbody2D _rigidBody;
+    private AIPath _aiPath;
     private Vector2 _velocityDirection;
 
     private bool _inMotion = false;
@@ -15,21 +16,22 @@ public class StepDustParticleController : MonoBehaviour
 
     void Start()
     {
-        _particleSystem = Instantiate(particlePrefab, gameObject.transform).GetComponent<ParticleSystem>();
+        _particleSystem = gameObject.GetComponent<ParticleSystem>();
         _defaultRotation = _particleSystem.shape.rotation.z;
-        //_rigidBody = transform.parent.GetComponent<Rigidbody2D>(); //uncomment when applied to final object
-        _rigidBody = GetComponent<Rigidbody2D>(); //change to parent's rigid body
+        _aiPath = transform.parent.GetComponent<Zombie>().GetComponent<AIPath>();
+        /*_rigidBody = GetComponent<Rigidbody2D>(); //change to parent's rigid body*/
     }
 
     void Update()
     {
 
-        //_velocityDirection = _rigidBody.velocity.normalized; //uncomment when applied to final object
+        _velocityDirection = _aiPath.desiredVelocity;
+        Debug.Log(_velocityDirection);
 
-        _velocityDirection = new Vector2(
+        /*_velocityDirection = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
-        ).normalized; //change to velocity vector
+        ).normalized; //change to velocity vector*/
 
         if ((_velocityDirection.x != 0 || _velocityDirection.y != 0) && !_inMotion)
         {

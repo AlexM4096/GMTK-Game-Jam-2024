@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6180282053886940293}
   - component: {fileID: 1211103993760036775}
   - component: {fileID: 8136410583980651356}
+  - component: {fileID: 121736084957650253}
   m_Layer: 0
   m_Name: StepDustParticle
   m_TagString: Untagged
@@ -4832,3 +4833,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &121736084957650253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259590213396742537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7badbafe6f992d241b4a3e2416199cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 0}

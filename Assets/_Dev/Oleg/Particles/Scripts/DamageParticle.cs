@@ -13,6 +13,7 @@ public class DamageParticle : MonoBehaviour
 
     public void OnDamage()
     {
+        gameObject.transform.parent = null;
         _particleSystem.Play();
     }
 }
