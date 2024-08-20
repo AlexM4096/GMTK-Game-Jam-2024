@@ -20,7 +20,7 @@ public class PolicementAI : MonoBehaviour
     private static readonly int IsShootingId = Animator.StringToHash("IsShooting");
 
     private const int AmmoInClip = 1;
-    private const float AttackDistance = 7f;
+    private const float AttackDistance = 20f;
     private const float ReloadTime = 2f;
     private const float TargetCloseRadius = 5f;
 
