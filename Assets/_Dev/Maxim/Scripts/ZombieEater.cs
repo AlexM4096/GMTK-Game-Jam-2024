@@ -1,5 +1,6 @@
-using Alex;
 using System.Collections;
+using Alex;
+using JSAM;
 using UnityEngine;
 
 public class ZombieEater : MonoBehaviour, IAttackable
@@ -7,7 +8,7 @@ public class ZombieEater : MonoBehaviour, IAttackable
     public ZombieCreator ZombieCreator;
 
     [SerializeField]
-    private Animator zombieAnimator;
+    private Zombie zombie;
 
     [SerializeField]
     private LayerMask eatableMask;
@@ -53,22 +54,20 @@ public class ZombieEater : MonoBehaviour, IAttackable
                 var eatableByZombie = _targets[0].GetComponentInParent<IDamageable>();
                 if (eatableByZombie != null)
                 {
-                    zombieAnimator.Play("attack");
-                    yield return new WaitForSeconds(0.5f);
+                    zombie.StartAttacking();
+                    yield return new WaitForSeconds(0.3f);
+
+                    AudioManager.PlaySound(AudioLibrarySounds.ZombieAttack);
+                    yield return new WaitForSeconds(0.3f);
 
                     if (_targets[0] != null)
                     {
-                        if (
-                            Vector2.Distance(transform.position, _targets[0].transform.position)
-                            <= radius + 0.1f
-                        )
-                        {
-                            ZombieCreator.CreateZombie(_targets[0].transform.position);
-                            eatableByZombie.TakeDamage(Damage, this);
-                        }
+                        ZombieCreator.CreateZombie(_targets[0].transform.position);
+                        eatableByZombie.TakeDamage(Damage, this);
                     }
 
                     yield return new WaitForSeconds(0.3f);
+                    zombie.StopAttacking();
                 }
             }
             yield return waitTime;

@@ -37,6 +37,7 @@ Transform:
   - {fileID: 2154121380249676181}
   - {fileID: 5206075174740898233}
   - {fileID: 9093214486866229402}
+  - {fileID: 4698909010872534872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2817040409258112901
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.2
+  radius: 0.5
   height: 2
   canMove: 1
   maxSpeed: 3
@@ -170,9 +171,60 @@ MonoBehaviour:
   eatableMask:
     serializedVersion: 2
     m_Bits: 256
-  scanOrigin: {x: 0, y: 0.5}
-  radius: 0.5
+  damage: 10
+  scanOrigin: {x: 0, y: 1.4}
+  radius: 1.5
   IsScanActive: 1
+--- !u!1 &6059003286804212934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4698909010872534872}
+  - component: {fileID: 612328392361266017}
+  m_Layer: 7
+  m_Name: ZombieAliveSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4698909010872534872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059003286804212934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 239572133579906801}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &612328392361266017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059003286804212934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c6cfe8bfc0d31409a979c41b0c8d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: 5cc0eebc368bf164f989322c8d954a81, type: 2}
+  advancedMode: 0
+  onStart: 1
+  onEnable: 0
+  onDisable: 0
+  onDestroy: 0
 --- !u!1 &7913886722661252508
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,8 +291,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.2
+  m_Offset: {x: 0, y: 0.28648537}
+  m_Radius: 0.48648536
 --- !u!1001 &3167529916723883039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,12 +380,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.296
+      value: -1.082
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
       propertyPath: m_LocalPosition.z
