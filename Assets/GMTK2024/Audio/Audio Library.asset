@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundCategories:
   - Zombie Sounds
+  - Enviroment
   musicCategories:
   - 
   Sounds:
   - {fileID: 11400000, guid: f58e369a84edee84e8575e927a90d261, type: 2}
   - {fileID: 11400000, guid: 5cc0eebc368bf164f989322c8d954a81, type: 2}
   - {fileID: 11400000, guid: f498e25bd87f49248a3b4b52e872ed58, type: 2}
+  - {fileID: 11400000, guid: 124f0ad45adb1844b80a05c67fa7a3c8, type: 2}
+  - {fileID: 11400000, guid: e6ef9054c60a35e45abf4ed1eeaa11be, type: 2}
   Music: []
   useCustomNames: 0
   generatedName: AudioLibrary
@@ -37,6 +40,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f58e369a84edee84e8575e927a90d261, type: 2}
     - {fileID: 11400000, guid: 5cc0eebc368bf164f989322c8d954a81, type: 2}
     - {fileID: 11400000, guid: f498e25bd87f49248a3b4b52e872ed58, type: 2}
+    foldout: 1
+  - name: Enviroment
+    files:
+    - {fileID: 11400000, guid: 124f0ad45adb1844b80a05c67fa7a3c8, type: 2}
+    - {fileID: 11400000, guid: e6ef9054c60a35e45abf4ed1eeaa11be, type: 2}
     foldout: 1
   musicCategoriesToList:
   - name: 

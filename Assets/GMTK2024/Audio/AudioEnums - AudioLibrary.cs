@@ -1,7 +1,9 @@
     public enum AudioLibrarySounds {
         BigZombieRoar,
         ZombieAlive,
-        ZombieAttack
+        ZombieAttack,
+        RockDestoy,
+        HouseDestroy
     }
     public enum AudioLibraryMusic {
     }

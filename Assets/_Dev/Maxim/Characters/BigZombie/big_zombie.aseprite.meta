@@ -128,8 +128,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 64
+      x: 50
+      y: 65
       width: 30
       height: 53
     spriteID: e52b13d2ae7514541a767590f996490d
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 64}
+    uvTransform: {x: 50, y: 65}
   - name: big_zombie_Frame_1
     originalName: 
     pivot: {x: 0.4666667, y: -0.09803922}
@@ -148,8 +148,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 186
+      x: 126
+      y: 4
       width: 30
       height: 51
     spriteID: 3b6d9712c6b9e50468c5079982651379
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 186}
+    uvTransform: {x: 126, y: 4}
   - name: big_zombie_Frame_2
     originalName: 
     pivot: {x: 0.4666667, y: -0.10204081}
@@ -168,8 +168,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 61
+      x: 126
+      y: 63
       width: 30
       height: 49
     spriteID: ecb064e1456a44b47ada713b5263520e
@@ -180,7 +180,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 61}
+    uvTransform: {x: 126, y: 63}
   - name: big_zombie_Frame_3
     originalName: 
     pivot: {x: 0.4827586, y: -0.099999994}
@@ -188,8 +188,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 118
+      x: 89
+      y: 126
       width: 29
       height: 50
     spriteID: 56c8df381f13d4f45b0deb783f035b1d
@@ -200,7 +200,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 118}
+    uvTransform: {x: 89, y: 126}
   - name: big_zombie_Frame_4
     originalName: 
     pivot: {x: 0.4666667, y: -0.094339624}
@@ -208,8 +208,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 125
+      x: 50
+      y: 126
       width: 30
       height: 53
     spriteID: 6e6d78b7fe348d045bd010549bdd7c56
@@ -220,7 +220,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 125}
+    uvTransform: {x: 50, y: 126}
   - name: big_zombie_Frame_5
     originalName: 
     pivot: {x: 0.5625, y: -0.11538462}
@@ -229,7 +229,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 126
       width: 32
       height: 52
     spriteID: 0424800e6aa87fb49941e04ef9445d7c
@@ -240,7 +240,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 126}
   - name: big_zombie_Frame_6
     originalName: 
     pivot: {x: 0.54838705, y: -0.12244898}
@@ -248,7 +248,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
+      x: 164
       y: 4
       width: 31
       height: 49
@@ -260,7 +260,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 4}
+    uvTransform: {x: 164, y: 4}
   - name: big_zombie_Frame_7
     originalName: 
     pivot: {x: 0.4166667, y: -0.12244898}
@@ -268,8 +268,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 176
+      x: 89
+      y: 184
       width: 24
       height: 49
     spriteID: 0f557da7b3d07f449ae504213d498e9b
@@ -280,7 +280,147 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 176}
+    uvTransform: {x: 89, y: 184}
+  - name: big_zombie_Frame_8
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 50
+      y: 187
+      width: 30
+      height: 53
+    spriteID: 3d72771d909a8aa4690e432ef80c5db8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 50, y: 187}
+  - name: big_zombie_Frame_9
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 4
+      width: 29
+      height: 53
+    spriteID: 9b7889f79e5bbbd4b87ca6bfa0cb69fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 4}
+  - name: big_zombie_Frame_10
+    originalName: 
+    pivot: {x: 0.4516129, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 186
+      width: 31
+      height: 53
+    spriteID: 83d060da80ae75745b26320dcb6221b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 186}
+  - name: big_zombie_Frame_11
+    originalName: 
+    pivot: {x: 0.40000004, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 65
+      width: 35
+      height: 53
+    spriteID: 41fc7543dee056741a75d0795c976cb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 65}
+  - name: big_zombie_Frame_12
+    originalName: 
+    pivot: {x: 0.36842108, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 38
+      height: 53
+    spriteID: 04b5132d0d8ad044a8e19fd1aa16069a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: big_zombie_Frame_13
+    originalName: 
+    pivot: {x: 0.4516129, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 50
+      y: 4
+      width: 31
+      height: 53
+    spriteID: 6c652d0d808b6a74b84b62960b425a81
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 50, y: 4}
+  - name: big_zombie_Frame_14
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.094339624}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 65
+      width: 29
+      height: 53
+    spriteID: af458eeec835b044980f2c21f97dd061
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 65}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -354,6 +494,62 @@ ScriptedImporter:
         width: 24
         height: 49
       spriteId: 0f557da7b3d07f449ae504213d498e9b
+    - name: big_zombie_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 22
+        y: 5
+        width: 30
+        height: 53
+      spriteId: 3d72771d909a8aa4690e432ef80c5db8
+    - name: big_zombie_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 22
+        y: 5
+        width: 29
+        height: 53
+      spriteId: 9b7889f79e5bbbd4b87ca6bfa0cb69fd
+    - name: big_zombie_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 22
+        y: 5
+        width: 31
+        height: 53
+      spriteId: 83d060da80ae75745b26320dcb6221b4
+    - name: big_zombie_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 22
+        y: 5
+        width: 35
+        height: 53
+      spriteId: 41fc7543dee056741a75d0795c976cb5
+    - name: big_zombie_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 22
+        y: 5
+        width: 38
+        height: 53
+      spriteId: 04b5132d0d8ad044a8e19fd1aa16069a
+    - name: big_zombie_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 22
+        y: 5
+        width: 31
+        height: 53
+      spriteId: 6c652d0d808b6a74b84b62960b425a81
+    - name: big_zombie_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 22
+        y: 5
+        width: 29
+        height: 53
+      spriteId: af458eeec835b044980f2c21f97dd061
     linkedCells: []
     parentIndex: -1
   platformSettings:

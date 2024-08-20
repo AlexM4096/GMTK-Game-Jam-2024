@@ -26,7 +26,7 @@ public class StepDustParticleController : MonoBehaviour
     {
 
         _velocityDirection = _aiPath.desiredVelocity;
-        Debug.Log(_velocityDirection);
+        // Debug.Log(_velocityDirection);
 
         /*_velocityDirection = new Vector2(
             Input.GetAxisRaw("Horizontal"),
