@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7022c5ab2bc7019488c1ea5328c1823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  criterias:
+  - {fileID: 11400000, guid: 125e048117b2f3b46b3ec881f426ccc3, type: 2}
   maxHealth: 10
   _damage: 0
   onHouseDestroyed:

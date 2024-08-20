@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criterias: []
   currentHealth: 0
-  maxHealth: 0
+  baseMaxHealth: 0
 --- !u!1001 &6356386583058986841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,26 +355,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7893559007726924280, guid: 4881fbe01b621fd4784f54038c5b9055, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171215871413651898, guid: 4881fbe01b621fd4784f54038c5b9055, type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171215871413651898, guid: 4881fbe01b621fd4784f54038c5b9055, type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171215871413651898, guid: 4881fbe01b621fd4784f54038c5b9055, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171215871413651898, guid: 4881fbe01b621fd4784f54038c5b9055, type: 3}
-      propertyPath: VelocityModule.speedModifier.maxCurve.m_Curve.Array.data[1].time
-      value: 0.0845427
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171215871413651898, guid: 4881fbe01b621fd4784f54038c5b9055, type: 3}
-      propertyPath: VelocityModule.speedModifier.maxCurve.m_Curve.Array.data[1].value
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

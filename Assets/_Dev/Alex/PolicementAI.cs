@@ -19,13 +19,14 @@ public class PolicementAI : MonoBehaviour
     private static readonly int IsRunningId = Animator.StringToHash("IsRunning");
     private static readonly int IsShootingId = Animator.StringToHash("IsShooting");
 
-    private const int AmmoInClip = 12;
+    private const int AmmoInClip = 1;
     private const float AttackDistance = 7f;
     private const float ReloadTime = 2f;
     private const float TargetCloseRadius = 5f;
 
     [SerializeField] private AIPath aiPath;
     [SerializeField] private Animator animator;
+    [SerializeField] private Health _health;
 
     private Blackboard _playerBlackboard;
     private Root _behaviorTree;
@@ -42,6 +43,14 @@ public class PolicementAI : MonoBehaviour
 
     private void Start()
     {
+        _health.DeathEvent += () =>
+        {
+            if ( _behaviorTree != null && _behaviorTree.CurrentState == Node.State.ACTIVE )
+            {
+                _behaviorTree.Stop();
+            }
+            Destroy(gameObject);
+        }; 
         _playerBlackboard = UnityContext.GetSharedBlackboard(Player.BlackboardKey);
 
         _moveable = new AIMove(aiPath);
