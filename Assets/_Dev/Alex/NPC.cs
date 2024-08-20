@@ -53,7 +53,7 @@ namespace Alex
             _behaviorTree = CreateBehaviorTree();
             _behaviorTree.Start();
 
-            Blackboard[TargetsKey] = _playerBlackboard.Get<ITargetable>(Player.TargetsKey);
+            // Blackboard[TargetsKey] = _playerBlackboard.Get<ITargetable>(Player.TargetsKey);
 
 #if UNITY_EDITOR
             Debugger debugger = gameObject.AddComponent<Debugger>();

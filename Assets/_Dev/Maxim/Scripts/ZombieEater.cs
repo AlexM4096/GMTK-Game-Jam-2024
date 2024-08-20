@@ -62,8 +62,8 @@ public class ZombieEater : MonoBehaviour, IAttackable
 
                     if (_targets[0] != null)
                     {
-                        ZombieCreator.CreateZombie(_targets[0].transform.position);
                         eatableByZombie.TakeDamage(Damage, this);
+                        ZombieCreator.CreateZombie(_targets[0].transform.position);
                     }
 
                     yield return new WaitForSeconds(0.3f);

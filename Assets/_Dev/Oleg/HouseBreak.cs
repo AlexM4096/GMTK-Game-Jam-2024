@@ -17,6 +17,12 @@ public class HouseBreak : MonoBehaviour, IDamageable
     private float _damage;
 
     [SerializeField]
+    private NPC npcToSpawn;
+
+    [SerializeField]
+    private Transform npcSpawnPoint;
+
+    [SerializeField]
     private UnityEvent onHouseDestroyed;
 
     private Material _material;
@@ -26,7 +32,7 @@ public class HouseBreak : MonoBehaviour, IDamageable
     void Start()
     {
         _material = GetComponent<SpriteRenderer>().material;
-      
+
         _health = maxHealth;
     }
 
@@ -46,6 +52,14 @@ public class HouseBreak : MonoBehaviour, IDamageable
         if (_health > 0 && amount > 0)
         {
             AudioManager.PlaySound(AudioLibrarySounds.RockDestoy);
+            if (npcToSpawn != null)
+            {
+                Instantiate(
+                    npcToSpawn,
+                    npcSpawnPoint != null ? npcSpawnPoint.position : transform.position,
+                    Quaternion.identity
+                );
+            }
         }
         _health = Mathf.Max(_health - amount, 0);
         if (_health == 0)

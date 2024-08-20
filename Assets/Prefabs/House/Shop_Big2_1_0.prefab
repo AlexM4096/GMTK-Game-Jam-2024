@@ -191,6 +191,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 125e048117b2f3b46b3ec881f426ccc3, type: 2}
   maxHealth: 10
   _damage: 0
+  npcToSpawn: {fileID: 8484035095674511177, guid: 6971a9852e961ca4faeaf5b53550e7d5, type: 3}
+  npcSpawnPoint: {fileID: 0}
   onHouseDestroyed:
     m_PersistentCalls:
       m_Calls: []
