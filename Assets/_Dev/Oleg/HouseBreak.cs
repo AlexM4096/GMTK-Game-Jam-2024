@@ -1,10 +1,15 @@
 using Alex;
 using JSAM;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class HouseBreak : MonoBehaviour, IDamageable
 {
+    [SerializeReference]
+    private List<DamageCriteria> criterias;
+
     [SerializeField]
     private float maxHealth = 10;
 
@@ -27,6 +32,15 @@ public class HouseBreak : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount, IAttackable source)
     {
+        if (criterias != null && criterias.Count > 0)
+        {
+            if (source is not MonoBehaviour monoBehaviour)
+                return;
+
+            if (!criterias.Any(x => x.CanTakeDamageFrom(monoBehaviour)))
+                return;
+        }
+
         if (_isDestroyed)
             return;
         if (_health > 0 && amount > 0)

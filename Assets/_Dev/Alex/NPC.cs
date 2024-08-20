@@ -123,7 +123,7 @@ namespace Alex
             var targets = _playerBlackboard.Get<IEnumerable<ITargetable>>(Player.TargetsKey);
             if (targets == null) return null;
 
-            ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).First();
+            ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).FirstOrDefault();
             return target;
         }
 

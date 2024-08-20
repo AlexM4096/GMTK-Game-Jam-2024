@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 1693305657685294628}
   animator: {fileID: 8790303146461648835}
+  _health: {fileID: 2008469483233189622}
 --- !u!114 &570922792077416590
 MonoBehaviour:
   m_ObjectHideFlags: 0

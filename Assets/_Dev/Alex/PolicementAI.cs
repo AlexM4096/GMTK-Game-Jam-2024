@@ -26,7 +26,6 @@ public class PolicementAI : MonoBehaviour
 
     [SerializeField] private AIPath aiPath;
     [SerializeField] private Animator animator;
-    [SerializeField] private Health _health;
 
     private Blackboard _playerBlackboard;
     private Root _behaviorTree;
@@ -43,14 +42,6 @@ public class PolicementAI : MonoBehaviour
 
     private void Start()
     {
-        _health.DeathEvent += () =>
-        {
-            if ( _behaviorTree != null && _behaviorTree.CurrentState == Node.State.ACTIVE )
-            {
-                _behaviorTree.Stop();
-            }
-            Destroy(gameObject);
-        }; 
         _playerBlackboard = UnityContext.GetSharedBlackboard(Player.BlackboardKey);
 
         _moveable = new AIMove(aiPath);
@@ -83,7 +74,7 @@ public class PolicementAI : MonoBehaviour
                     new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, TargetCloseRadius, Stops.IMMEDIATE_RESTART,
                         new Action(() =>
                         {
-                            var position = Blackboard.Get<Vector3>(DirectionToTargetKey) * -10;
+                            var position = Blackboard.Get<Vector3>(DirectionToTargetKey) * -0;
                             _moveable.MoveAndLook(position);
                         })
                     ),
@@ -153,7 +144,7 @@ public class PolicementAI : MonoBehaviour
         var targets = _playerBlackboard.Get<IEnumerable<ITargetable>>(Player.TargetsKey);
         if (targets == null) return null;
 
-        ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).First();
+        ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).FirstOrDefault();
         return target;
     }
 
