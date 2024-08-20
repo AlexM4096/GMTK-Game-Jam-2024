@@ -59,7 +59,7 @@ namespace Alex
                 y = Random.Range(0, height + offset.y);
             }
 
-            var position = new Vector2(x, y);
+            var position = new Vector3(x, y);
 
             var flipHotizontal = Random.value < 0.5f;
             if (flipHotizontal) position = position.With(y: -position.y);
@@ -67,7 +67,7 @@ namespace Alex
             var flipVertical = Random.value < 0.5f;
             if (flipVertical) position = position.With(x: -position.x);
 
-            return position;
+            return _mainCamera.transform.position + position;
         }
     }
 }
