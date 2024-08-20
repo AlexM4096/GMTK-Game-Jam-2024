@@ -1,7 +1,8 @@
+using Alex;
 using System.Collections;
 using UnityEngine;
 
-public class ZombieEater : MonoBehaviour
+public class ZombieEater : MonoBehaviour, IAttackable
 {
     public ZombieCreator ZombieCreator;
 
@@ -26,6 +27,10 @@ public class ZombieEater : MonoBehaviour
 
     public bool IsScanActive = true;
 
+    public bool CanAttack { get; set; } = true;
+    public float Damage { get; set; }
+    public ITargetable Target { get; set; }
+
     private void Start()
     {
         _contactFilter = new ContactFilter2D() { layerMask = eatableMask, useLayerMask = true };
@@ -45,8 +50,8 @@ public class ZombieEater : MonoBehaviour
             );
             if (count > 0)
             {
-                var eatableByZombie = _targets[0].GetComponentInParent<EatableByZombie>();
-                if (eatableByZombie)
+                var eatableByZombie = _targets[0].GetComponentInParent<IDamageable>();
+                if (eatableByZombie != null)
                 {
                     zombieAnimator.Play("attack");
                     yield return new WaitForSeconds(0.5f);
@@ -59,7 +64,7 @@ public class ZombieEater : MonoBehaviour
                         )
                         {
                             ZombieCreator.CreateZombie(_targets[0].transform.position);
-                            eatableByZombie.Eated();
+                            eatableByZombie.TakeDamage(Damage, this);
                         }
                     }
 

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace Alex
+﻿namespace Alex
 {
     public interface IDamageable
     {

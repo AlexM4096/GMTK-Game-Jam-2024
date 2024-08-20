@@ -1,9 +1,9 @@
 ﻿using AlexTools.Extensions;
 using UnityEngine;
 
-namespace Flyweight
+namespace FlyweightSystem
 {
-    [CreateAssetMenu(fileName = "FlyweightSettings", menuName = "Flyweight/Create FlyweightSettings")]
+    [CreateAssetMenu(fileName = "FlyweightSettings", menuName = "FlyweightSystem/Create FlyweightSettings")]
     public class FlyweightSettings : ScriptableObject
     {
         [field: SerializeField]

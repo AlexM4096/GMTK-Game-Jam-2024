@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Flyweight
+namespace FlyweightSystem
 {
     public class Flyweight : MonoBehaviour
     {
