@@ -1,5 +1,7 @@
 ﻿using NPBehave;
 using Pathfinding;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Alex
@@ -8,7 +10,7 @@ namespace Alex
     {
         private const string TargetPositionKey = "TargetPosition";
         private const string DistanceToTargetKey = "DistanceToTarget";
-        private const string TargetKey = "Target";
+        private const string TargetsKey = "TargetsKey";
         private const string HasTargetKey = "HaveTarget";
         private const string VectorToTargetKey = "VectorToTarget";
         private const string DirectionToTargetKey = "DirectionToTarget";
@@ -42,7 +44,7 @@ namespace Alex
             _behaviorTree = CreateBehaviorTree();
             _behaviorTree.Start();
 
-            Blackboard[TargetKey] = _playerBlackboard.Get<ITargetable>(Player.Target);
+            Blackboard[TargetsKey] = _playerBlackboard.Get<ITargetable>(Player.TargetsKey);
 
 #if UNITY_EDITOR
             Debugger debugger = gameObject.AddComponent<Debugger>();
@@ -85,8 +87,8 @@ namespace Alex
 
         private void UpdateBlackboard()
         {
-            ITargetable target = Blackboard.Get<ITargetable>(TargetKey);
-            Blackboard[TargetKey] = target;
+            var target = Blackboard.Get<ITargetable>(TargetsKey);          
+            Blackboard[TargetsKey] = target;
 
             bool isTargetNull = target == null;
             Blackboard[HasTargetKey] = !isTargetNull;
@@ -107,13 +109,17 @@ namespace Alex
         }
         private ITargetable SelectTarget()
         {
-            return _playerBlackboard.Get<ITargetable>(Player.Target);
+            var targets = _playerBlackboard.Get<IEnumerable<ITargetable>>(Player.TargetsKey);
+            if (targets == null) return null;
+
+            ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).First();
+            return target;
         }
 
         private void SetTarget()
         {
             var target = SelectTarget();
-            Blackboard[TargetKey] = target;
+            Blackboard[TargetsKey] = target;
             _attackable.Target = target;
         }
 

@@ -1,24 +1,25 @@
 using Alex;
 using NPBehave;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerController controller;
+    [SerializeField] private ZombieGroup zombieGroup;
 
     public const string BlackboardKey = "Player";
-    public const string Target = "Target";
+    public const string TargetsKey = "TargetsKey";
 
     private Blackboard _blackboard;
 
-    public void TakeDamage(float amount, IAttackable source)
-    {
-        // print($"Take {amount} damage from {source}");
-    }
-
     private void Awake()
     {
-        _blackboard = UnityContext.GetSharedBlackboard(BlackboardKey);
-        _blackboard[Target] = controller;
+        _blackboard = UnityContext.GetSharedBlackboard(BlackboardKey);   
+    }
+
+    private void Update()
+    {
+        _blackboard[TargetsKey] = zombieGroup.Zombies.Select(x => new TargetFromTransform(x.transform) as ITargetable);
     }
 }

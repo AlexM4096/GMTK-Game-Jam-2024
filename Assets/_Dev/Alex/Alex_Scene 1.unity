@@ -868,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082973267686087034, guid: 93227836116f22f4888e99b409606ad6, type: 3}
       propertyPath: _time
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4082973267686087034, guid: 93227836116f22f4888e99b409606ad6, type: 3}
       propertyPath: _isRunning
@@ -876,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082973267686087034, guid: 93227836116f22f4888e99b409606ad6, type: 3}
       propertyPath: _timerType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8878337088051174264, guid: 93227836116f22f4888e99b409606ad6, type: 3}
       propertyPath: m_Pivot.x
@@ -1141,11 +1141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e181a01bc829ff4d8b0eba8b4e09fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldown: 5
+  baseCooldown: 5
+  minCooldown: 2.5
+  speedOfDecreaseCooldownPerSecond: 0.002
   settings: {fileID: 11400000, guid: 25012b1bc6bf3cb4cb1b354109f04722, type: 2}
   offset: {x: 3, y: 3}
   timer: {fileID: 1189767458}
-  maxScale: 0.2
 --- !u!4 &2015795598
 Transform:
   m_ObjectHideFlags: 0
