@@ -58,7 +58,7 @@ namespace Alex
                 new Service(0.125f, UpdateBlackboard,
                     new Selector(
                         new BlackboardCondition(HasTargetKey, Operator.IS_EQUAL, false, Stops.SELF,
-                            new Action(SetTarget)
+                            new Empty()
                         ),
                         new Failer(new Action(() => {
                             _moveable.CanMove = true;
@@ -87,11 +87,12 @@ namespace Alex
 
         private void UpdateBlackboard()
         {
-            var target = Blackboard.Get<ITargetable>(TargetsKey);          
+            var target = SelectTarget();
             Blackboard[TargetsKey] = target;
 
             bool isTargetNull = target == null;
             Blackboard[HasTargetKey] = !isTargetNull;
+            _attackable.Target = target;
 
             if (isTargetNull) return;
 
@@ -107,6 +108,7 @@ namespace Alex
             float distanceToTarget = vectorToTarget.magnitude;
             Blackboard[DistanceToTargetKey] = distanceToTarget;
         }
+
         private ITargetable SelectTarget()
         {
             var targets = _playerBlackboard.Get<IEnumerable<ITargetable>>(Player.TargetsKey);
@@ -114,13 +116,6 @@ namespace Alex
 
             ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).First();
             return target;
-        }
-
-        private void SetTarget()
-        {
-            var target = SelectTarget();
-            Blackboard[TargetsKey] = target;
-            _attackable.Target = target;
         }
 
 #if UNITY_EDITOR

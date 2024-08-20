@@ -64,7 +64,7 @@ public class PolicementAI : MonoBehaviour
             new Service(0.125f, UpdateBlackboard,
                 new Selector(
                     new BlackboardCondition(HasTargetKey, Operator.IS_EQUAL, false, Stops.SELF,
-                        new Action(SetTarget)
+                        new Empty()
                     ),
                     new Failer(new Action(() => { 
                         _moveable.CanMove = true;
@@ -117,11 +117,12 @@ public class PolicementAI : MonoBehaviour
 
     private void UpdateBlackboard()
     {
-        var target = Blackboard.Get<ITargetable>(TargetsKey);
+        var target = SelectTarget();
         Blackboard[TargetsKey] = target;
 
         bool isTargetNull = target == null;
         Blackboard[HasTargetKey] = !isTargetNull;
+        _attackable.Target = target;
 
         if (isTargetNull) return;
 
@@ -137,6 +138,7 @@ public class PolicementAI : MonoBehaviour
         float distanceToTarget = vectorToTarget.magnitude;
         Blackboard[DistanceToTargetKey] = distanceToTarget;
     }
+
     private ITargetable SelectTarget()
     {
         var targets = _playerBlackboard.Get<IEnumerable<ITargetable>>(Player.TargetsKey);
@@ -144,13 +146,6 @@ public class PolicementAI : MonoBehaviour
 
         ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).First();
         return target;
-    }
-
-    private void SetTarget()
-    {
-        var target = SelectTarget();
-        Blackboard[TargetsKey] = target;
-        _attackable.Target = target;
     }
 
 #if UNITY_EDITOR
