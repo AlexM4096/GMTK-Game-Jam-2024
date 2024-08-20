@@ -1,4 +1,5 @@
 using System.Collections;
+using JSAM;
 using UnityEngine;
 
 public class ZombieEater : MonoBehaviour
@@ -7,9 +8,6 @@ public class ZombieEater : MonoBehaviour
 
     [SerializeField]
     private Zombie zombie;
-
-    [SerializeField]
-    private AudioSource attackSound;
 
     [SerializeField]
     private LayerMask eatableMask;
@@ -51,7 +49,8 @@ public class ZombieEater : MonoBehaviour
                 {
                     zombie.StartAttacking();
                     yield return new WaitForSeconds(0.3f);
-                    attackSound.Play();
+
+                    AudioManager.PlaySound(AudioLibrarySounds.ZombieAttack);
                     yield return new WaitForSeconds(0.3f);
 
                     if (_targets[0] != null && !eatableByZombie.IsEated && eatableByZombie.Eated())
