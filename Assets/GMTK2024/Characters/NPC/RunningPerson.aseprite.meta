@@ -1,8 +1,13 @@
 fileFormatVersion: 2
-guid: 635a14342e9417b46bf0f1b6766e6d9b
+guid: 35685c43ccfbc434d8fed74ac21e2ac2
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunningPerson_Clip
+    second: {fileID: 7400000, guid: 3f7a9be5e0045544280b47c052e4fe93, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -75,7 +80,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -88,7 +93,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -97,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638597725283166439
+  platformSettingsDirtyTick: 638597761481001761
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +126,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: RunningPM_Frame_0
+  - name: RunningPerson_Frame_0
     originalName: 
-    pivot: {x: 0.44827586, y: -0.33333334}
+    pivot: {x: 0.41935483, y: 0.6153846}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 29
-      height: 48
-    spriteID: 428053f0c2e470140b36105cbdcbea4e
+      width: 31
+      height: 52
+    spriteID: 473c0654b85cb5f4baf90dbc56207d95
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,18 +146,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: RunningPM_Frame_1
+  - name: RunningPerson_Frame_1
     originalName: 
-    pivot: {x: 0.5909091, y: -0.34042555}
+    pivot: {x: 0.5, y: 0.6399999}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 41
-      y: 4
+      x: 43
+      y: 62
       width: 22
-      height: 47
-    spriteID: 41fee4f0e7b3f044b9cb4c97fd3abe93
+      height: 50
+    spriteID: 8545f9489944c9545b89be77cc317f6b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,19 +165,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 41, y: 4}
-  - name: RunningPM_Frame_2
+    uvTransform: {x: 43, y: 62}
+  - name: RunningPerson_Frame_2
     originalName: 
-    pivot: {x: 0.4666667, y: -0.34042555}
+    pivot: {x: 0.5294118, y: 0.6399999}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 41
-      y: 116
-      width: 15
-      height: 47
-    spriteID: 0a104c7c3890a5742b497bfe7d5c1c8b
+      x: 43
+      y: 120
+      width: 17
+      height: 50
+    spriteID: 2332d90ea30dc3b47b2b08c50986947e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,19 +185,59 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 41, y: 116}
-  - name: RunningPM_Frame_3
+    uvTransform: {x: 43, y: 120}
+  - name: RunningPerson_Frame_3
     originalName: 
-    pivot: {x: 0.42307693, y: -0.32653064}
+    pivot: {x: 0.4814815, y: 0.60377353}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 171
+      y: 124
+      width: 27
+      height: 53
+    spriteID: d32425d2089c9f842ba1406bf74d202a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 124}
+  - name: RunningPerson_Frame_4
+    originalName: 
+    pivot: {x: 0.40000004, y: 0.6153846}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 64
+      width: 30
+      height: 52
+    spriteID: 0c1acb1ab8ba9ff458253fa7e3e4e895
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 64}
+  - name: RunningPerson_Frame_5
+    originalName: 
+    pivot: {x: 0.4615385, y: 0.6399999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 4
       width: 26
-      height: 49
-    spriteID: 6614aeb0625f05248b6425a69254d585
+      height: 50
+    spriteID: ca3b7e4acefb6ef488eeb116e8920afe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -200,19 +245,39 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 171}
-  - name: RunningPM_Frame_4
+    uvTransform: {x: 43, y: 4}
+  - name: RunningPerson_Frame_6
     originalName: 
-    pivot: {x: 0.4137931, y: -0.33333334}
+    pivot: {x: 0.5, y: 0.6399999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 178
+      width: 16
+      height: 50
+    spriteID: 3a6098f3fee494b44badf391e31ee986
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 178}
+  - name: RunningPerson_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.59259254}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 60
-      width: 29
-      height: 48
-    spriteID: 570fa43fa7970ab4ebb0d9a77668d8aa
+      y: 185
+      width: 26
+      height: 54
+    spriteID: a59a35630c3069e45a95ab4a09141f2c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -220,140 +285,80 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 60}
-  - name: RunningPM_Frame_5
-    originalName: 
-    pivot: {x: 0.46428573, y: -0.34042555}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 116
-      width: 28
-      height: 47
-    spriteID: ae4b660ff641c6347ac196a554285d8b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 116}
-  - name: RunningPM_Frame_6
-    originalName: 
-    pivot: {x: 0.4666667, y: -0.34042555}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 41
-      y: 171
-      width: 15
-      height: 47
-    spriteID: 02bb6f91458902244b918d464e3fb9e3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 41, y: 171}
-  - name: RunningPM_Frame_7
-    originalName: 
-    pivot: {x: 0.55, y: -0.32653064}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 41
-      y: 59
-      width: 20
-      height: 49
-    spriteID: 90066f1c81433cf4daa79a80297ba9d1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 41, y: 59}
+    uvTransform: {x: 4, y: 185}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 2054807794
-    name: RunningPM
+    guid: -835632672
+    name: RunningPerson
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: RunningPM_Frame_0
+    - name: RunningPerson_Frame_0
       frameIndex: 0
       cellRect:
         x: 19
         y: 16
-        width: 29
-        height: 48
-      spriteId: 428053f0c2e470140b36105cbdcbea4e
-    - name: RunningPM_Frame_1
+        width: 31
+        height: 52
+      spriteId: 473c0654b85cb5f4baf90dbc56207d95
+    - name: RunningPerson_Frame_1
       frameIndex: 1
-      cellRect:
-        x: 19
-        y: 16
-        width: 22
-        height: 47
-      spriteId: 41fee4f0e7b3f044b9cb4c97fd3abe93
-    - name: RunningPM_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 25
-        y: 16
-        width: 15
-        height: 47
-      spriteId: 0a104c7c3890a5742b497bfe7d5c1c8b
-    - name: RunningPM_Frame_3
-      frameIndex: 3
       cellRect:
         x: 21
         y: 16
-        width: 26
-        height: 49
-      spriteId: 6614aeb0625f05248b6425a69254d585
-    - name: RunningPM_Frame_4
+        width: 22
+        height: 50
+      spriteId: 8545f9489944c9545b89be77cc317f6b
+    - name: RunningPerson_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 23
+        y: 16
+        width: 17
+        height: 50
+      spriteId: 2332d90ea30dc3b47b2b08c50986947e
+    - name: RunningPerson_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 19
+        y: 16
+        width: 27
+        height: 53
+      spriteId: d32425d2089c9f842ba1406bf74d202a
+    - name: RunningPerson_Frame_4
       frameIndex: 4
       cellRect:
         x: 20
         y: 16
-        width: 29
-        height: 48
-      spriteId: 570fa43fa7970ab4ebb0d9a77668d8aa
-    - name: RunningPM_Frame_5
+        width: 30
+        height: 52
+      spriteId: 0c1acb1ab8ba9ff458253fa7e3e4e895
+    - name: RunningPerson_Frame_5
       frameIndex: 5
+      cellRect:
+        x: 20
+        y: 16
+        width: 26
+        height: 50
+      spriteId: ca3b7e4acefb6ef488eeb116e8920afe
+    - name: RunningPerson_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 24
+        y: 16
+        width: 16
+        height: 50
+      spriteId: 3a6098f3fee494b44badf391e31ee986
+    - name: RunningPerson_Frame_7
+      frameIndex: 7
       cellRect:
         x: 19
         y: 16
-        width: 28
-        height: 47
-      spriteId: ae4b660ff641c6347ac196a554285d8b
-    - name: RunningPM_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 25
-        y: 16
-        width: 15
-        height: 47
-      spriteId: 02bb6f91458902244b918d464e3fb9e3
-    - name: RunningPM_Frame_7
-      frameIndex: 7
-      cellRect:
-        x: 21
-        y: 16
-        width: 20
-        height: 49
-      spriteId: 90066f1c81433cf4daa79a80297ba9d1
+        width: 26
+        height: 54
+      spriteId: a59a35630c3069e45a95ab4a09141f2c
     linkedCells: []
     parentIndex: -1
   platformSettings:
