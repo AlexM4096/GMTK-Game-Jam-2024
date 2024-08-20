@@ -1,3 +1,5 @@
+using System;
+using Alex;
 using Pathfinding;
 using UnityEngine;
 using UnityHFSM;
@@ -18,6 +20,9 @@ public class Zombie : MonoBehaviour
 
     [field: SerializeField]
     public ZombieEater ZombieEater { get; private set; }
+
+    [field: SerializeField]
+    public Health Health { get; private set; }
 
     private StateMachine _fsm;
 

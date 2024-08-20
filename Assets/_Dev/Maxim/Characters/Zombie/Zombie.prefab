@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2701305413133828547}
   - component: {fileID: 1284188830876877960}
   - component: {fileID: 2990561912952362829}
+  - component: {fileID: 7353712363750893293}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -84,6 +85,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 6965685419435236176}
   <AiPath>k__BackingField: {fileID: 1284188830876877960}
   <ZombieEater>k__BackingField: {fileID: 2990561912952362829}
+  <Health>k__BackingField: {fileID: 7353712363750893293}
 --- !u!114 &2701305413133828547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,21 @@ MonoBehaviour:
   scanOrigin: {x: 0, y: 1.4}
   radius: 1.5
   IsScanActive: 1
+--- !u!114 &7353712363750893293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3607564089969338485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81f0a02c0507224c82e531d91446494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criterias: []
+  currentHealth: 0
+  maxHealth: 10
 --- !u!1 &6059003286804212934
 GameObject:
   m_ObjectHideFlags: 0

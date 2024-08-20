@@ -13,6 +13,9 @@ public class ZombieGroup : MonoBehaviour
     [SerializeField]
     private Transform offCenter;
 
+    [SerializeField]
+    private GameObject zombieCorpse;
+
     public int ZombieCount => _zombies.Count;
 
     private readonly List<Zombie> _zombies = new();
@@ -24,6 +27,13 @@ public class ZombieGroup : MonoBehaviour
         _zombies.Add(zombie);
         _zombiePoints = pointsGenerator.GeneratePoints(_zombies.Count);
         SetZombieOnPoints();
+
+        zombie.Health.DeathEvent += () =>
+        {
+            RemoveZombieFromGroup(zombie);
+            Instantiate(zombieCorpse, zombie.transform.position, Quaternion.identity);
+            Destroy(zombie.gameObject);
+        };
 
         if (zombiesContainer != null)
         {

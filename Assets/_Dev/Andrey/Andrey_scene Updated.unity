@@ -135190,6 +135190,7 @@ MonoBehaviour:
   pointsGenerator: {fileID: 1976696029}
   zombiesContainer: {fileID: 330039054}
   offCenter: {fileID: 1094239436}
+  zombieCorpse: {fileID: 72176037223477418, guid: 03d3bcebf5d810147a2f73dc12f855ba, type: 3}
 --- !u!4 &1976696028
 Transform:
   m_ObjectHideFlags: 0
