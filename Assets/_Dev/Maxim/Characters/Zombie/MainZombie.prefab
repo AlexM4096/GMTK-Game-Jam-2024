@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -78,19 +82,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 229893273276918443}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6217381563278625808}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5277906121571447784}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 590790465919491396}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2880478570717286090}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
 --- !u!212 &130220872145848366 stripped
 SpriteRenderer:
@@ -102,18 +97,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
   m_PrefabInstance: {fileID: 3718783681635768522}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &229893273276918443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990835744004149154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 199ff081231796746bf99c88b6e33511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6217381563278625808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,18 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aIPath: {fileID: 7522222668063397630}
   sprite: {fileID: 130220872145848366}
---- !u!114 &5277906121571447784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990835744004149154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca8db425090495f48b06bf2027199cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &590790465919491396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,26 +129,6 @@ MonoBehaviour:
   onEnable: 1
   onDisable: 0
   onDestroy: 0
---- !u!114 &2880478570717286090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990835744004149154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eff8132c2fef7343b3b8a77a6d1f5c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainZombie: {fileID: 5491008501929465115}
-  <Damage>k__BackingField: 2.5
-  delayBetweenAttacks: 2
-  scanMask:
-    serializedVersion: 2
-    m_Bits: 320
-  scanOrigin: {x: 0, y: 1.92}
-  scanSize: {x: 2.25, y: 3.78}
 --- !u!4 &6831472253374506951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 4c42cae7e19d54d4da77422cbe134269, type: 3}
@@ -249,6 +200,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2468477543645800765}
+    - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4352161459338282089}
   m_SourcePrefab: {fileID: 100100000, guid: dc8f0faa552426249b09952b4288109b, type: 3}
 --- !u!1 &5451241437124131331 stripped
 GameObject:
@@ -271,6 +225,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   mainZombie: {fileID: 5491008501929465115}
   bigZombieSprite: {fileID: 130220872145848366}
+  bigZombieAttack: {fileID: 4352161459338282089}
   abilityConfig:
     ZombiesRequiredToBeginTransformation: 10
     AdditionalScalePerZombie: 0.1
@@ -279,6 +234,26 @@ MonoBehaviour:
     AdditionalAbilityDurationPerZombie: 0.5
     MaxAbilityDuration: 30
     AbilityCooldown: 5
+--- !u!114 &4352161459338282089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451241437124131331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eff8132c2fef7343b3b8a77a6d1f5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainZombie: {fileID: 5491008501929465115}
+  <Damage>k__BackingField: 2.5
+  delayBetweenAttacks: 2
+  scanMask:
+    serializedVersion: 2
+    m_Bits: 320
+  scanOrigin: {x: 0, y: 1.68}
+  scanSize: {x: 2.2, y: 3.82}
 --- !u!114 &5491008501929465115 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}

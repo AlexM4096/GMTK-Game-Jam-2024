@@ -8,6 +8,7 @@ public partial class BigZombieAbility
         private readonly Zombie _mainZombie;
         private readonly ZombieGroup _zombieGroup;
         private readonly AbilityStatus _abilityStatus;
+        private readonly BigZombieAttack _bigZombieAttack;
         private readonly BigZombieAbilityConfig _abilityConfig;
         private readonly SpriteRenderer _bigZombieSprite;
         private Vector3 _targetBigZombieScale;
@@ -15,6 +16,7 @@ public partial class BigZombieAbility
         public BigZombieState(
             Zombie mainZombie,
             ZombieGroup zombieGroup,
+            BigZombieAttack bigZombieAttack,
             SpriteRenderer bigZombieSprite,
             AbilityStatus abilityStatus,
             BigZombieAbilityConfig abilityConfig
@@ -23,6 +25,7 @@ public partial class BigZombieAbility
         {
             _mainZombie = mainZombie;
             _zombieGroup = zombieGroup;
+            _bigZombieAttack = bigZombieAttack;
             _bigZombieSprite = bigZombieSprite;
             _abilityStatus = abilityStatus;
             _abilityConfig = abilityConfig;
@@ -31,6 +34,7 @@ public partial class BigZombieAbility
         public override void OnEnter()
         {
             _mainZombie.ZombieEater.StopScan();
+            _bigZombieAttack.StartScan();
 
             _abilityStatus.ActiveRemaining = Mathf.Min(
                 _abilityConfig.StartAbilityDuration
@@ -71,6 +75,7 @@ public partial class BigZombieAbility
             _mainZombie.ChangeAnimator(_mainZombie.Sprite.GetComponent<Animator>());
             _bigZombieSprite.gameObject.SetActive(false);
             _mainZombie.Sprite.gameObject.SetActive(true);
+            _bigZombieAttack.StopScan();
             _mainZombie.ZombieEater.StartScan();
             _abilityStatus.IsActive = false;
         }

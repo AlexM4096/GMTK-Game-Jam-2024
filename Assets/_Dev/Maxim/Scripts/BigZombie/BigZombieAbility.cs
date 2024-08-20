@@ -16,15 +16,20 @@ public partial class BigZombieAbility : MonoBehaviour
     private SpriteRenderer bigZombieSprite;
 
     [SerializeField]
+    private BigZombieAttack bigZombieAttack;
+
+    [SerializeField]
     private BigZombieAbilityConfig abilityConfig;
+
+    public event System.Action<string> StateChanged;
 
     private StateMachine _fsm;
     public AbilityStatus AbilityStatus { get; private set; } = new();
     public BigZombieAbilityConfig AbilityConfig => abilityConfig;
 
-    private const string CROWD = "Crowd";
-    private const string BIG_ZOMBIE = "BigZombie";
-    private const string BIG_ZOMBIE_TRANSITION = "BigZombieTransition";
+    public const string CROWD = "Crowd";
+    public const string BIG_ZOMBIE = "BigZombie";
+    public const string BIG_ZOMBIE_TRANSITION = "BigZombieTransition";
 
     void Start()
     {
@@ -55,6 +60,7 @@ public partial class BigZombieAbility : MonoBehaviour
             new BigZombieState(
                 mainZombie,
                 zombieGroup,
+                bigZombieAttack,
                 bigZombieSprite,
                 AbilityStatus,
                 abilityConfig
@@ -76,6 +82,7 @@ public partial class BigZombieAbility : MonoBehaviour
 
         _fsm.StateChanged += (s) =>
         {
+            StateChanged?.Invoke(_fsm.ActiveStateName);
             Debug.Log(_fsm.GetActiveHierarchyPath());
         };
     }

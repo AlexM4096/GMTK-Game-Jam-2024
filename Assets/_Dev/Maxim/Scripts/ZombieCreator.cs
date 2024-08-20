@@ -19,7 +19,7 @@ public class ZombieCreator : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
+    // #if UNITY_EDITOR
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -27,7 +27,8 @@ public class ZombieCreator : MonoBehaviour
             CreateZombie();
         }
     }
-#endif
+
+    // #endif
 
     [ContextMenu("Create Zombie")]
     public void CreateZombie()

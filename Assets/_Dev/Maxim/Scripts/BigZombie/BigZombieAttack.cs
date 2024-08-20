@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Alex;
 using JSAM;
@@ -13,6 +14,8 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
     public bool CanAttack { get; set; }
     float IAttackable.Damage { get; set; }
     public ITargetable Target { get; set; }
+
+    public event Action Attacked;
 
     [SerializeField]
     private float delayBetweenAttacks = 2f;
@@ -35,19 +38,9 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
         _contactFilter = new ContactFilter2D() { layerMask = scanMask, useLayerMask = true };
     }
 
-    private void OnEnable()
-    {
-        _attackRoutine = StartCoroutine(AttackRoutine());
-    }
-
     private void OnDisable()
     {
-        if (mainZombie != null && mainZombie.IsAttacking)
-        {
-            mainZombie.StopAttacking();
-        }
-        StopCoroutine(_attackRoutine);
-        _attackRoutine = null;
+        StopScan();
     }
 
     private IEnumerator AttackRoutine()
@@ -57,9 +50,12 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
         {
             yield return wait;
 
+            Vector2 scaledOrigin = Vector2.Scale(scanOrigin, transform.localScale);
+            Vector2 scaledSize = Vector2.Scale(scanSize, transform.localScale);
+
             var count = Physics2D.OverlapCapsule(
-                (Vector2)transform.position + scanOrigin,
-                scanSize,
+                (Vector2)transform.position + scaledOrigin,
+                scaledSize,
                 CapsuleDirection2D.Vertical,
                 0,
                 _contactFilter,
@@ -69,8 +65,11 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
             {
                 var target = _scanResults[0].GetComponentInParent<IDamageable>();
                 mainZombie.StartAttacking();
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.8f);
+
                 AudioManager.PlaySound(AudioLibrarySounds.ZombieAttack);
+                Attacked?.Invoke();
+
                 if (target != null)
                 {
                     target.TakeDamage(Damage, this);
@@ -84,23 +83,39 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
         }
     }
 
+    public void StartScan()
+    {
+        _attackRoutine = StartCoroutine(AttackRoutine());
+    }
+
+    public void StopScan()
+    {
+        if (mainZombie != null && mainZombie.IsAttacking)
+        {
+            mainZombie.StopAttacking();
+        }
+        if (_attackRoutine != null)
+        {
+            StopCoroutine(_attackRoutine);
+            _attackRoutine = null;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
-        // Устанавливаем цвет для Gizmos
         Gizmos.color = Color.yellow;
 
-        // Вычисляем центр капсулы
-        Vector2 capsuleCenter = transform.position + (Vector3)scanOrigin;
+        Vector2 scaledOrigin = Vector2.Scale(scanOrigin, transform.localScale);
+        Vector2 scaledSize = Vector2.Scale(scanSize, transform.localScale);
 
-        // Рисуем капсулу в виде комбинации двух сфер и цилиндра
-        float capsuleHeight = scanSize.y;
-        float capsuleRadius = scanSize.x / 2;
+        Vector2 capsuleCenter = (Vector2)transform.position + scaledOrigin;
 
-        // Вычисляем позиции верхней и нижней частей капсулы
+        float capsuleHeight = scaledSize.y;
+        float capsuleRadius = scaledSize.x / 2;
+
         Vector2 point1 = capsuleCenter + Vector2.up * (capsuleHeight / 2 - capsuleRadius);
         Vector2 point2 = capsuleCenter - Vector2.up * (capsuleHeight / 2 - capsuleRadius);
 
-        // Рисуем капсулу с использованием Gizmos
         Gizmos.DrawWireSphere(point1, capsuleRadius);
         Gizmos.DrawWireSphere(point2, capsuleRadius);
         Gizmos.DrawLine(

@@ -16,9 +16,12 @@ public class ZombieGroup : MonoBehaviour
     [SerializeField]
     private GameObject zombieCorpse;
 
+    public event System.Action<int> ZombieCountChanged;
+
     public int ZombieCount => _zombies.Count;
 
     private readonly List<Zombie> _zombies = new();
+    public List<Zombie> Zombies => _zombies;
 
     private Transform[] _zombiePoints = new Transform[0];
 
@@ -39,6 +42,8 @@ public class ZombieGroup : MonoBehaviour
         {
             zombie.transform.SetParent(zombiesContainer);
         }
+
+        ZombieCountChanged?.Invoke(_zombies.Count);
     }
 
     public void RemoveZombieFromGroup(Zombie zombie)
@@ -48,7 +53,6 @@ public class ZombieGroup : MonoBehaviour
         SetZombieOnPoints();
     }
 
-    [ContextMenu("Move all zombies to center")]
     public void MoveAllZombiesToBigZombie()
     {
         for (int i = 0; i < _zombies.Count; i++)
@@ -58,7 +62,6 @@ public class ZombieGroup : MonoBehaviour
         }
     }
 
-    [ContextMenu("Move all zombies to their points")]
     public void MoveAllZombiesToTheirPoints()
     {
         for (int i = 0; i < _zombiePoints.Length; i++)

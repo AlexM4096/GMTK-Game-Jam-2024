@@ -13,7 +13,7 @@ public class SpriteDirectionBasedOnAiPathVelocity : MonoBehaviour
     {
         var velX = aIPath.desiredVelocity.x;
 
-        if (Mathf.Abs(velX) > 0.02f)
+        if (Mathf.Abs(velX) > 0.1f)
         {
             sprite.flipX = velX < 0;
         }
