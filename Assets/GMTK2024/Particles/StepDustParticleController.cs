@@ -17,24 +17,27 @@ public class StepDustParticleController : MonoBehaviour
     {
         _particleSystem = Instantiate(particlePrefab, gameObject.transform).GetComponent<ParticleSystem>();
         _defaultRotation = _particleSystem.shape.rotation.z;
-        _rigidBody = GetComponent<Rigidbody2D>();
+        //_rigidBody = transform.parent.GetComponent<Rigidbody2D>(); //uncomment when applied to final object
+        _rigidBody = GetComponent<Rigidbody2D>(); //change to parent's rigid body
     }
 
     void Update()
     {
 
+        //_velocityDirection = _rigidBody.velocity.normalized; //uncomment when applied to final object
+
         _velocityDirection = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
-        ).normalized;
+        ).normalized; //change to velocity vector
 
-        if ((_velocityDirection.x != 0 || _velocityDirection.y != 0) && !_inMotion) //change to velocity check
+        if ((_velocityDirection.x != 0 || _velocityDirection.y != 0) && !_inMotion)
         {
             _inMotion = true;
             _particleSystem.Emit(5);
             _particleSystem.Play();
         }
-        if ((_velocityDirection.x == 0 && _velocityDirection.y == 0) && _inMotion) //change to velocity check
+        if ((_velocityDirection.x == 0 && _velocityDirection.y == 0) && _inMotion)
         {
             _inMotion = false;
             _particleSystem.Stop();
