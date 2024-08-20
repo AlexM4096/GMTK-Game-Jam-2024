@@ -124,6 +124,8 @@ public class Zombie : MonoBehaviour
         _fsm.RequestStateChange(ATTACK);
     }
 
+    public bool IsAttacking => _fsm.ActiveStateName == ATTACK;
+
     public void StopAttacking()
     {
         _fsm.RequestStateChange(IDLE, forceInstantly: true);
@@ -151,7 +153,7 @@ public class Zombie : MonoBehaviour
         public override void OnLogic()
         {
             _timeElapsed += Time.deltaTime;
-            if (_timeElapsed > 0.1f && !_isHidden && _zombie.AiPath.reachedEndOfPath)
+            if (_timeElapsed > 0.1f && !_isHidden && _zombie.AiPath.remainingDistance <= 0.5f)
             {
                 _isHidden = true;
                 _zombie.Sprite.gameObject.SetActive(false);

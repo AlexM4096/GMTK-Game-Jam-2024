@@ -9,8 +9,9 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
     private Zombie mainZombie;
 
     [field: SerializeField]
-    public float Damage { get; set; }
+    public float Damage { get; set; } = 1f;
     public bool CanAttack { get; set; }
+    float IAttackable.Damage { get; set; }
     public ITargetable Target { get; set; }
 
     [SerializeField]
@@ -41,6 +42,10 @@ public class BigZombieAttack : MonoBehaviour, IAttackable
 
     private void OnDisable()
     {
+        if (mainZombie != null && mainZombie.IsAttacking)
+        {
+            mainZombie.StopAttacking();
+        }
         StopCoroutine(_attackRoutine);
         _attackRoutine = null;
     }

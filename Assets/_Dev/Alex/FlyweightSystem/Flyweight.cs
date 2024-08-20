@@ -4,7 +4,6 @@ namespace FlyweightSystem
 {
     public class Flyweight : MonoBehaviour
     {
-        [field: SerializeField]
         public FlyweightSettings Settings { get; private set; }
 
         public virtual void Initialize(FlyweightSettings settings)

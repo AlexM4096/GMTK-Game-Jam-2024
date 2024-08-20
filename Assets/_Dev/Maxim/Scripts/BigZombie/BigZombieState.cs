@@ -68,9 +68,9 @@ public partial class BigZombieAbility
 
         public override void OnExit()
         {
+            _mainZombie.ChangeAnimator(_mainZombie.Sprite.GetComponent<Animator>());
             _bigZombieSprite.gameObject.SetActive(false);
             _mainZombie.Sprite.gameObject.SetActive(true);
-            _mainZombie.ChangeAnimator(_mainZombie.Sprite.GetComponent<Animator>());
             _mainZombie.ZombieEater.StartScan();
             _abilityStatus.IsActive = false;
         }

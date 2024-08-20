@@ -8,7 +8,6 @@ namespace Alex
     [RequireComponent(typeof(Collider2D))]
     public class Projectile : FlyweightSystem.Flyweight
     {
-        [field: SerializeField]
         public new ProjectileSettings Settings { get; private set; }
 
         public IAttackable Parent { get; set; }
