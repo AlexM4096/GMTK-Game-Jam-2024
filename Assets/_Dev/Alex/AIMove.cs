@@ -3,11 +3,11 @@ using Pathfinding;
 
 namespace Alex
 {
-    public class AIMoveable : IMoveable
+    public class AIMove : IMoveable
     {
         private readonly IAstarAI _astarAI;
 
-        public AIMoveable(IAstarAI astarAI) => _astarAI = astarAI;
+        public AIMove(IAstarAI astarAI) => _astarAI = astarAI;
 
         public Vector3 Position => _astarAI.position;
         public Vector3 Velocity => _astarAI.velocity;
