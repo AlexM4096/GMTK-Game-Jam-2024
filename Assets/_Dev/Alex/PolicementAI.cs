@@ -14,12 +14,16 @@ public class PolicementAI : MonoBehaviour
     private const string AmmoAmountKey = "AmmoAmount";
     private const string IsReloadingKey = "IsReloading";
 
+    private static readonly int IsRunningId = Animator.StringToHash("IsRunning");
+    private static readonly int IsShootingId = Animator.StringToHash("IsShooting");
+
     private const int AmmoInClip = 12;
     private const float AttackDistance = 7f;
     private const float ReloadTime = 2f;
     private const float TargetCloseRadius = 5f;
 
     [SerializeField] private AIPath aiPath;
+    [SerializeField] private Animator animator;
 
     private Blackboard _playerBlackboard;
     private Root _behaviorTree;
@@ -60,7 +64,11 @@ public class PolicementAI : MonoBehaviour
                     new BlackboardCondition(HasTargetKey, Operator.IS_EQUAL, false, Stops.SELF,
                         new Action(SetTarget)
                     ),
-                    new Failer(new Action(() => { _moveable.CanMove = true; })),
+                    new Failer(new Action(() => { 
+                        _moveable.CanMove = true;
+                        animator.SetBool(IsRunningId, true);
+                        animator.SetBool(IsShootingId, false);
+                    })),
                     new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, TargetCloseRadius, Stops.IMMEDIATE_RESTART,
                         new Action(() =>
                         {
@@ -75,9 +83,13 @@ public class PolicementAI : MonoBehaviour
                             _moveable.MoveAndLook(position);
                         })
                     ),
-                    new Failer(new Action(() => { _moveable.CanMove = false; })),
-                    new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, AttackDistance, Stops.IMMEDIATE_RESTART,
-                        new Selector(
+                    new Failer(new Action(() => { 
+                        _moveable.CanMove = false;
+                        animator.SetBool(IsRunningId, false);
+                    })),
+                    new Selector(
+                        new Failer(new Action(() => { animator.SetBool(IsShootingId, true); })),
+                        new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, AttackDistance + 0.5f, Stops.IMMEDIATE_RESTART,
                             new BlackboardCondition(AmmoAmountKey, Operator.IS_GREATER, 0, Stops.IMMEDIATE_RESTART,
                                 new Cooldown(0.3f,
                                     new Action(() =>
@@ -86,13 +98,14 @@ public class PolicementAI : MonoBehaviour
                                             Blackboard[AmmoAmountKey] = Blackboard.Get<int>(AmmoAmountKey) - 1;
                                             _attackable.Attack();
                                         }
-                                    )                       
+                                    )
                                 )
-                            ),
-                            new Sequence(
-                                new Wait(ReloadTime),
-                                new Action(() => { Blackboard[AmmoAmountKey] = AmmoInClip; })
                             )
+                        ),
+                        new Failer(new Action(() => { animator.SetBool(IsShootingId, false); })),
+                        new Sequence(
+                            new Wait(ReloadTime),
+                            new Action(() => { Blackboard[AmmoAmountKey] = AmmoInClip; })
                         )
                     )
                 )
