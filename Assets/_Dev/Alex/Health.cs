@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AlexTools.Extensions;
@@ -15,14 +16,18 @@ namespace Alex
         private float currentHealth;
 
         [SerializeField]
-        private float maxHealth;
+        private float baseMaxHealth;
+
+        private float modifiedMaxHealth;
+
+        private Coroutine revertHealthRoutine;
 
         public float CurrentHealth
         {
             get => currentHealth;
             set
             {
-                currentHealth = value.AtMost(maxHealth);
+                currentHealth = value.AtMost(modifiedMaxHealth);
 
                 if (currentHealth <= 0)
                 {
@@ -34,23 +39,53 @@ namespace Alex
             }
         }
 
-        public float MaxHealth
+        public float BaseMaxHealth
         {
-            get => maxHealth;
+            get => baseMaxHealth;
             set
             {
-                var precntage = currentHealth / maxHealth;
-                maxHealth = value;
-                CurrentHealth *= precntage;
+                baseMaxHealth = value;
+                UpdateModifiedHealth();
             }
         }
+
+        public float ModifiedMaxHealth => modifiedMaxHealth;
 
         public event Action<float> HealthChangeEvent;
         public event Action DeathEvent;
 
         private void Awake()
         {
-            currentHealth = maxHealth;
+            modifiedMaxHealth = baseMaxHealth;
+            currentHealth = modifiedMaxHealth;
+        }
+
+        public void ApplyHealthModifier(float multiplier, float duration)
+        {
+            if (revertHealthRoutine != null)
+            {
+                StopCoroutine(revertHealthRoutine);
+            }
+
+            modifiedMaxHealth = baseMaxHealth * multiplier;
+            CurrentHealth *= multiplier;
+
+            revertHealthRoutine = StartCoroutine(RevertHealthAfterTime(duration));
+        }
+
+        private IEnumerator RevertHealthAfterTime(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            modifiedMaxHealth = baseMaxHealth;
+
+            CurrentHealth = currentHealth / modifiedMaxHealth * baseMaxHealth;
+        }
+
+        private void UpdateModifiedHealth()
+        {
+            var percentage = currentHealth / modifiedMaxHealth;
+            modifiedMaxHealth = baseMaxHealth;
+            CurrentHealth = modifiedMaxHealth * percentage;
         }
 
         public void TakeDamage(float amount, IAttackable source)

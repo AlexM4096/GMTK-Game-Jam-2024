@@ -46,6 +46,11 @@ public partial class BigZombieAbility
             );
             _abilityStatus.IsActive = true;
 
+            _mainZombie.Health.ApplyHealthModifier(
+                Mathf.Clamp(_zombieGroup.ZombieCount / 5, 2, 5),
+                _abilityStatus.ActiveRemaining
+            );
+
             _targetBigZombieScale =
                 Vector3.one
                 * Mathf.Min(
