@@ -21,7 +21,7 @@ public class ZombieGroup : MonoBehaviour
     public int ZombieCount => _zombies.Count;
 
     private readonly List<Zombie> _zombies = new();
-    public List<Zombie> Zombies => _zombies;
+    public IEnumerable<Zombie> Zombies => _zombies;
 
     private Transform[] _zombiePoints = new Transform[0];
 

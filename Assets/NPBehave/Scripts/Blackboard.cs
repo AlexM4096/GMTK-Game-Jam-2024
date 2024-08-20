@@ -158,7 +158,7 @@ namespace NPBehave
             {
                 return default(T);
             }
-            return (T)result;
+            return (T)result;   
         }
 
         public object Get(string key)
