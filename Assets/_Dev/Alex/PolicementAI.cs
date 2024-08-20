@@ -26,6 +26,7 @@ public class PolicementAI : MonoBehaviour
 
     [SerializeField] private AIPath aiPath;
     [SerializeField] private Animator animator;
+    [SerializeField] private Health _health;
 
     private Blackboard _playerBlackboard;
     private Root _behaviorTree;
@@ -42,6 +43,14 @@ public class PolicementAI : MonoBehaviour
 
     private void Start()
     {
+        _health.DeathEvent += () =>
+        {
+            if ( _behaviorTree != null && _behaviorTree.CurrentState == Node.State.ACTIVE )
+            {
+                _behaviorTree.Stop();
+            }
+            Destroy(gameObject);
+        }; 
         _playerBlackboard = UnityContext.GetSharedBlackboard(Player.BlackboardKey);
 
         _moveable = new AIMove(aiPath);

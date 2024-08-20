@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2701305413133828547}
   - component: {fileID: 1284188830876877960}
   - component: {fileID: 2990561912952362829}
-  - component: {fileID: 7353712363750893293}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -85,7 +84,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 6965685419435236176}
   <AiPath>k__BackingField: {fileID: 1284188830876877960}
   <ZombieEater>k__BackingField: {fileID: 2990561912952362829}
-  <Health>k__BackingField: {fileID: 7353712363750893293}
+  <Health>k__BackingField: {fileID: 811523824026040812}
 --- !u!114 &2701305413133828547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,21 +176,6 @@ MonoBehaviour:
   scanOrigin: {x: 0, y: 1.4}
   radius: 1.5
   IsScanActive: 1
---- !u!114 &7353712363750893293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3607564089969338485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81f0a02c0507224c82e531d91446494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  criterias: []
-  currentHealth: 0
-  baseMaxHealth: 10
 --- !u!1 &6059003286804212934
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5206075174740898233}
   - component: {fileID: 657324823207602117}
+  - component: {fileID: 811523824026040812}
   m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
@@ -310,6 +295,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.28648537}
   m_Radius: 0.48648536
+--- !u!114 &811523824026040812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913886722661252508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81f0a02c0507224c82e531d91446494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criterias: []
+  currentHealth: 0
+  baseMaxHealth: 5
 --- !u!1001 &3167529916723883039
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -206,6 +206,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4352161459338282089}
+    - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3176499005372135898}
   m_SourcePrefab: {fileID: 100100000, guid: dc8f0faa552426249b09952b4288109b, type: 3}
 --- !u!1 &5451241437124131331 stripped
 GameObject:
@@ -275,6 +278,19 @@ MonoBehaviour:
     m_Bits: 320
   scanOrigin: {x: 0, y: 1.68}
   scanSize: {x: 2.2, y: 3.82}
+--- !u!114 &3176499005372135898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451241437124131331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8027d6b2a34cb9645ae2d89a6009a2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieGroup: {fileID: 0}
 --- !u!114 &5491008501929465115 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3856748665776916333, guid: dc8f0faa552426249b09952b4288109b, type: 3}

@@ -53,7 +53,7 @@ public class Timer : MonoBehaviour
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(_time);
 
-        _timerText.text = timeSpan.ToString(@"mm\:ss\:ff");
+        _timerText.text = timeSpan.ToString(@"mm\:ss");
     }
 
 
