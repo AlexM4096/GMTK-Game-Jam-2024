@@ -13,6 +13,10 @@ public class Timer : MonoBehaviour
     [SerializeField] private TimerType _timerType;
     [SerializeField] private float _time = 60.0f;
 
+    public float InitialTime { get; private set; }
+    public float CurrentTime => _time;
+
+
     public event Action Finished;
 
     public void StartTimer() => _isRunning = true;
@@ -21,6 +25,7 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         _timerText = GetComponent<TMP_Text>();
+        InitialTime = _time;
     }
 
     private void EndTimer() 
@@ -36,6 +41,7 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         if (!_isRunning) return;
+
         if (_timerType == TimerType.Countdown && _time < 0f)
         {
             EndTimer();
