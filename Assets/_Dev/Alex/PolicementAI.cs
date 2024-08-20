@@ -1,13 +1,15 @@
 using Alex;
 using NPBehave;
 using Pathfinding;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PolicementAI : MonoBehaviour
 {
     private const string TargetPositionKey = "TargetPosition";
     private const string DistanceToTargetKey = "DistanceToTarget";
-    private const string TargetKey = "Target";
+    private const string TargetsKey = "TargetsKey";
     private const string HasTargetKey = "HaveTarget";
     private const string VectorToTargetKey = "VectorToTarget";
     private const string DirectionToTargetKey = "DirectionToTarget";
@@ -115,8 +117,8 @@ public class PolicementAI : MonoBehaviour
 
     private void UpdateBlackboard()
     {
-        ITargetable target = Blackboard.Get<ITargetable>(TargetKey);
-        Blackboard[TargetKey] = target;
+        var target = Blackboard.Get<ITargetable>(TargetsKey);
+        Blackboard[TargetsKey] = target;
 
         bool isTargetNull = target == null;
         Blackboard[HasTargetKey] = !isTargetNull;
@@ -135,16 +137,19 @@ public class PolicementAI : MonoBehaviour
         float distanceToTarget = vectorToTarget.magnitude;
         Blackboard[DistanceToTargetKey] = distanceToTarget;
     }
-
     private ITargetable SelectTarget()
     {
-        return _playerBlackboard.Get<ITargetable>(Player.Target);
+        var targets = _playerBlackboard.Get<IEnumerable<ITargetable>>(Player.TargetsKey);
+        if (targets == null) return null;
+
+        ITargetable target = targets.OrderBy(x => Vector3.Distance(_moveable.Position, x.Position)).First();
+        return target;
     }
 
     private void SetTarget()
     {
         var target = SelectTarget();
-        Blackboard[TargetKey] = target;
+        Blackboard[TargetsKey] = target;
         _attackable.Target = target;
     }
 
