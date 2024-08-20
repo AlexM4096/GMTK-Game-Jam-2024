@@ -67,7 +67,7 @@ namespace Alex
             var flipVertical = Random.value < 0.5f;
             if (flipVertical) position = position.With(x: -position.x);
 
-            return _mainCamera.transform.position + position;
+            return _mainCamera.transform.position.With(z: 0) + position;
         }
     }
 }
