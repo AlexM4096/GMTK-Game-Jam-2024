@@ -255,25 +255,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6849004253387853191, guid: e177fc1da009c99468ba9bb440a7e08a, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6849004253387853191, guid: e177fc1da009c99468ba9bb440a7e08a, type: 3}
-      propertyPath: m_Size.x
-      value: 1.03125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6849004253387853191, guid: e177fc1da009c99468ba9bb440a7e08a, type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8609871814438932060, guid: e177fc1da009c99468ba9bb440a7e08a, type: 3}
       propertyPath: m_Name
       value: Policeman
-      objectReference: {fileID: 0}
-    - target: {fileID: 8609871814438932060, guid: e177fc1da009c99468ba9bb440a7e08a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -858,22 +842,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4575710269450945451, guid: 6971a9852e961ca4faeaf5b53550e7d5, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575710269450945451, guid: 6971a9852e961ca4faeaf5b53550e7d5, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575710269450945451, guid: 6971a9852e961ca4faeaf5b53550e7d5, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.03125
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575710269450945451, guid: 6971a9852e961ca4faeaf5b53550e7d5, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6562217426872874660, guid: 6971a9852e961ca4faeaf5b53550e7d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.87
