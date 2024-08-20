@@ -225,8 +225,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cooldown...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 86c4281f58875a94f9d3ff84f97c67ba, type: 2}
-  m_sharedMaterial: {fileID: -2416817361770153291, guid: 86c4281f58875a94f9d3ff84f97c67ba, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f08157ae02b4aee438e76d196b0bebb6, type: 2}
+  m_sharedMaterial: {fileID: 7713912941889796806, guid: f08157ae02b4aee438e76d196b0bebb6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
