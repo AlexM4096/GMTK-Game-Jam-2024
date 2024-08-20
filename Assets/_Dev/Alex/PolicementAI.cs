@@ -38,7 +38,7 @@ public class PolicementAI : MonoBehaviour
     {
         _playerBlackboard = UnityContext.GetSharedBlackboard(Player.BlackboardKey);
 
-        _moveable = new AIMoveable(aiPath);
+        _moveable = new AIMove(aiPath);
 
         _behaviorTree = CreateBehaviorTree();
         _behaviorTree.Start();
@@ -144,6 +144,7 @@ public class PolicementAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, TargetCloseRadius);
 
+        if (_moveable == null) return;
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(_moveable.Position, _moveable.Position + _moveable.Velocity);
     }
