@@ -13,9 +13,12 @@ namespace Alex
         private const string VectorToTargetKey = "VectorToTarget";
         private const string DirectionToTargetKey = "DirectionToTarget";
 
-        private const float TargetCloseRadius = 5f;
+        private static readonly int IsRunningId = Animator.StringToHash("IsRunning");
+
+        private const float TargetCloseRadius = 8f;
 
         [SerializeField] private AIPath aiPath;
+        [SerializeField] private Animator animator;
 
         private Blackboard _playerBlackboard;
         private Root _behaviorTree;
@@ -55,12 +58,25 @@ namespace Alex
                         new BlackboardCondition(HasTargetKey, Operator.IS_EQUAL, false, Stops.SELF,
                             new Action(SetTarget)
                         ),
+                        new Failer(new Action(() => {
+                            _moveable.CanMove = true;
+                            animator.SetBool(IsRunningId, true); 
+                        })),
                         new BlackboardCondition(DistanceToTargetKey, Operator.IS_SMALLER, TargetCloseRadius, Stops.IMMEDIATE_RESTART,
                             new Action(() =>
                             {
                                 var position = Blackboard.Get<Vector3>(DirectionToTargetKey) * -10;
                                 _moveable.MoveAndLook(position);
-                            })
+                            }
+                            )
+                        ),
+                        new Failer(
+                            new Action(() =>
+                            {
+                                _moveable.CanMove = false;
+                                animator.SetBool(IsRunningId, false);
+                            }
+                            )
                         )
                     )
                 )
