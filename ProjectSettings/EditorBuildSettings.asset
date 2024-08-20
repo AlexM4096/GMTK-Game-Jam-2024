@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Dev/Maxim/Maxim Scene.unity
-    guid: ecff0fb37b7096e44b0ee829bcb8e329
+    path: Assets/_Dev/Andrey/Andrey_scene Updated.unity
+    guid: 7472b012b134819469ee0d3a1225165d
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

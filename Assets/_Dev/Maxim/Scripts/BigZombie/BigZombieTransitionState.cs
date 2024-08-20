@@ -32,7 +32,6 @@ public partial class BigZombieAbility
 
         public override void OnEnter()
         {
-            _bigZombieSprite.sortingOrder += 1;
             _bigZombieSprite.gameObject.SetActive(true);
             _mainZombie.Sprite.gameObject.SetActive(false);
             _mainZombie.ChangeAnimator(_bigZombieSprite.GetComponent<Animator>());
@@ -48,7 +47,7 @@ public partial class BigZombieAbility
                 _bigZombieSprite.gameObject.SetActive(false);
                 _mainZombie.Sprite.gameObject.SetActive(true);
                 _mainZombie.ChangeAnimator(_mainZombie.Sprite.GetComponent<Animator>());
-                
+
                 _fsm.RequestStateChange(CROWD);
                 fsm.StateCanExit();
             }
@@ -81,7 +80,6 @@ public partial class BigZombieAbility
 
         public override void OnExit()
         {
-            _bigZombieSprite.sortingOrder -= 1;
             _playerController.IsActive = true;
         }
     }
