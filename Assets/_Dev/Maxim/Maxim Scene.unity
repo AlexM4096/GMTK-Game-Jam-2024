@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &33591048
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &162894942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1477,6 +1483,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &534720552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,6 +2212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &834139599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2328,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &921092708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2862,6 +2877,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1166918712 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 635a14342e9417b46bf0f1b6766e6d9b, type: 3}
@@ -3005,6 +3023,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1259845891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,6 +3145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1293690041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3321,6 +3345,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1547966142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3538,6 +3565,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1635088278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,6 +4367,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1914001198
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,6 +4417,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1935914065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4727,6 +4763,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2046193164
 PrefabInstance:
   m_ObjectHideFlags: 0

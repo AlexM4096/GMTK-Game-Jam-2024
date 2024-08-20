@@ -13,6 +13,9 @@ public partial class BigZombieAbility : MonoBehaviour
     private Zombie mainZombie;
 
     [SerializeField]
+    private SpriteRenderer bigZombieSprite;
+
+    [SerializeField]
     private BigZombieAbilityConfig abilityConfig;
 
     private StateMachine _fsm;
@@ -42,13 +45,20 @@ public partial class BigZombieAbility : MonoBehaviour
                 _fsm,
                 mainZombie,
                 zombieGroup,
+                bigZombieSprite,
                 playerController,
                 abilityConfig
             )
         );
         _fsm.AddState(
             BIG_ZOMBIE,
-            new BigZombieState(mainZombie, zombieGroup, AbilityStatus, abilityConfig)
+            new BigZombieState(
+                mainZombie,
+                zombieGroup,
+                bigZombieSprite,
+                AbilityStatus,
+                abilityConfig
+            )
         );
 
         _fsm.AddTransition(CROWD, BIG_ZOMBIE_TRANSITION);

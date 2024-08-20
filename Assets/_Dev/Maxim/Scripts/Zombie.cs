@@ -104,6 +104,11 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    public void ChangeAnimator(Animator newAnimator)
+    {
+        Animator = newAnimator;
+    }
+
     public void GoToBigZombie()
     {
         _fsm.Trigger("go_to_big_zombie");

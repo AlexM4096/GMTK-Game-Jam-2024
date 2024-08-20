@@ -9,6 +9,9 @@ public class ZombieEater : MonoBehaviour
     private Zombie zombie;
 
     [SerializeField]
+    private AudioSource attackSound;
+
+    [SerializeField]
     private LayerMask eatableMask;
 
     [SerializeField]
@@ -47,7 +50,9 @@ public class ZombieEater : MonoBehaviour
                 if (eatableByZombie && !eatableByZombie.IsEated)
                 {
                     zombie.StartAttacking();
-                    yield return new WaitForSeconds(0.6f);
+                    yield return new WaitForSeconds(0.3f);
+                    attackSound.Play();
+                    yield return new WaitForSeconds(0.3f);
 
                     if (_targets[0] != null && !eatableByZombie.IsEated && eatableByZombie.Eated())
                     {

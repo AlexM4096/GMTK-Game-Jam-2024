@@ -8,6 +8,7 @@ public partial class BigZombieAbility
         private readonly ZombieGroup _zombieGroup;
         private readonly PlayerController _playerController;
         private readonly BigZombieAbilityConfig _abilityConfig;
+        private readonly SpriteRenderer _bigZombieSprite;
         private readonly Zombie _mainZombie;
         private readonly StateMachine _fsm;
 
@@ -15,6 +16,7 @@ public partial class BigZombieAbility
             StateMachine fsm,
             Zombie mainZombie,
             ZombieGroup zombieGroup,
+            SpriteRenderer bigZombieSprite,
             PlayerController playerController,
             BigZombieAbilityConfig abilityConfig
         )
@@ -23,13 +25,18 @@ public partial class BigZombieAbility
             _fsm = fsm;
             _mainZombie = mainZombie;
             _zombieGroup = zombieGroup;
+            _bigZombieSprite = bigZombieSprite;
             _playerController = playerController;
             _abilityConfig = abilityConfig;
         }
 
         public override void OnEnter()
         {
-            _mainZombie.Sprite.sortingOrder += 1;
+            _bigZombieSprite.sortingOrder += 1;
+            _bigZombieSprite.gameObject.SetActive(true);
+            _mainZombie.Sprite.gameObject.SetActive(false);
+            _mainZombie.ChangeAnimator(_bigZombieSprite.GetComponent<Animator>());
+
             _zombieGroup.MoveAllZombiesToBigZombie();
             _playerController.IsActive = false;
         }
@@ -38,6 +45,10 @@ public partial class BigZombieAbility
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                _bigZombieSprite.gameObject.SetActive(false);
+                _mainZombie.Sprite.gameObject.SetActive(true);
+                _mainZombie.ChangeAnimator(_mainZombie.Sprite.GetComponent<Animator>());
+                
                 _fsm.RequestStateChange(CROWD);
                 fsm.StateCanExit();
             }
@@ -70,7 +81,7 @@ public partial class BigZombieAbility
 
         public override void OnExit()
         {
-            _mainZombie.Sprite.sortingOrder -= 1;
+            _bigZombieSprite.sortingOrder -= 1;
             _playerController.IsActive = true;
         }
     }
