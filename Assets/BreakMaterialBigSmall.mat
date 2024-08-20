@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BreakMaterial
+  m_Name: BreakMaterialBigSmall
   m_Shader: {fileID: 4800000, guid: beec7caef7e37ad46b3bfb629aa71407, type: 3}
-  m_Parent: {fileID: 2100000, guid: a1e5271b4f511cb409ebf5e919389c25, type: 2}
+  m_Parent: {fileID: 2100000, guid: 7b8f0dd261a22d24faf66aa5ea769a8f, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,7 +22,19 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _CrackTex1:
+        m_Texture: {fileID: 2800000, guid: 55bc20f2f11f44b4ca82e23305a8e026, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CrackTex2:
+        m_Texture: {fileID: 2800000, guid: fd877476a62d7c043a0f5bb39124c811, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CrackTex3:
+        m_Texture: {fileID: 2800000, guid: d5544164fb965144b9ed8ac2b8f1c8ab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Damage: 0
