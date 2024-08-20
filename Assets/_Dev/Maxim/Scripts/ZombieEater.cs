@@ -1,16 +1,19 @@
+using Alex;
 using System.Collections;
-using JSAM;
 using UnityEngine;
 
-public class ZombieEater : MonoBehaviour
+public class ZombieEater : MonoBehaviour, IAttackable
 {
     public ZombieCreator ZombieCreator;
 
     [SerializeField]
-    private Zombie zombie;
+    private Animator zombieAnimator;
 
     [SerializeField]
     private LayerMask eatableMask;
+
+    [SerializeField]
+    private float damage = 10f;
 
     [SerializeField]
     private Vector2 scanOrigin = Vector2.zero;
@@ -24,6 +27,10 @@ public class ZombieEater : MonoBehaviour
 
     public bool IsScanActive = true;
 
+    public bool CanAttack { get; set; } = true;
+    public float Damage { get; set; }
+    public ITargetable Target { get; set; }
+
     private void Start()
     {
         _contactFilter = new ContactFilter2D() { layerMask = eatableMask, useLayerMask = true };
@@ -35,7 +42,6 @@ public class ZombieEater : MonoBehaviour
         var waitTime = new WaitForSeconds(0.125f);
         while (true)
         {
-            yield return waitTime;
             var count = Physics2D.OverlapCircle(
                 transform.position + (Vector3)scanOrigin,
                 radius,
@@ -44,24 +50,28 @@ public class ZombieEater : MonoBehaviour
             );
             if (count > 0)
             {
-                var eatableByZombie = _targets[0].GetComponentInParent<EatableByZombie>();
-                if (eatableByZombie && !eatableByZombie.IsEated)
+                var eatableByZombie = _targets[0].GetComponentInParent<IDamageable>();
+                if (eatableByZombie != null)
                 {
-                    zombie.StartAttacking();
-                    yield return new WaitForSeconds(0.3f);
+                    zombieAnimator.Play("attack");
+                    yield return new WaitForSeconds(0.5f);
 
-                    AudioManager.PlaySound(AudioLibrarySounds.ZombieAttack);
-                    yield return new WaitForSeconds(0.3f);
-
-                    if (_targets[0] != null && !eatableByZombie.IsEated && eatableByZombie.Eated())
+                    if (_targets[0] != null)
                     {
-                        ZombieCreator.CreateZombie(_targets[0].transform.position);
+                        if (
+                            Vector2.Distance(transform.position, _targets[0].transform.position)
+                            <= radius + 0.1f
+                        )
+                        {
+                            ZombieCreator.CreateZombie(_targets[0].transform.position);
+                            eatableByZombie.TakeDamage(Damage, this);
+                        }
                     }
 
                     yield return new WaitForSeconds(0.3f);
-                    zombie.StopAttacking();
                 }
             }
+            yield return waitTime;
         }
     }
 

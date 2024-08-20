@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Flyweight
+namespace FlyweightSystem
 {
     public class FlyweightFactory : Singleton<FlyweightFactory>
     {

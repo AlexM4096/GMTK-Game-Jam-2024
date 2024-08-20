@@ -2,7 +2,7 @@ using Alex;
 using NPBehave;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerController controller;
 
@@ -21,12 +21,4 @@ public class Player : MonoBehaviour, IDamageable
         _blackboard = UnityContext.GetSharedBlackboard(BlackboardKey);
         _blackboard[Target] = controller;
     }
-
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (!collision.gameObject.TryGetComponent<Flyweight.Flyweight>(out var flyweight))
-    //         return;
-    // 
-    //     flyweight.ReleaseSelf();
-    // }
 }

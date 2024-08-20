@@ -1,16 +1,16 @@
 ﻿using AlexTools.Extensions;
-using Flyweight;
+using FlyweightSystem;
 using UnityEngine;
 
 namespace Alex
 {
-    [CreateAssetMenu(fileName = "FlyweightSettings", menuName = "Flyweight/Create ProjectileSettings")]
+    [CreateAssetMenu(fileName = "FlyweightSettings", menuName = "FlyweightSystem/Create ProjectileSettings")]
     public class ProjectileSettings : FlyweightSettings
     {
         [field: SerializeField] public float Velocity { get; set; }
         [field: SerializeField] public float LifeTime { get; set; }
 
-        public override Flyweight.Flyweight Create()
+        public override FlyweightSystem.Flyweight Create()
         {
             var go = Instantiate(Prefab);
             go.name = Prefab.name;

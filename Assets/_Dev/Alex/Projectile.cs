@@ -1,12 +1,12 @@
 ﻿using AlexTools;
-using Flyweight;
+using FlyweightSystem;
 using System.Collections;
 using UnityEngine;
 
 namespace Alex
 {
     [RequireComponent(typeof(Collider2D))]
-    public class Projectile : Flyweight.Flyweight
+    public class Projectile : FlyweightSystem.Flyweight
     {
         [field: SerializeField]
         public new ProjectileSettings Settings { get; private set; }
