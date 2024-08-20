@@ -83,6 +83,7 @@ public class BigZombieAbilityStatus : MonoBehaviour
                 .DOFillAmount(0, AbilityStatus.ActiveRemaining)
                 .SetEase(Ease.Linear)
                 .From(1);
+            statusLabel.text = isActiveStatus;
         }
     }
 }

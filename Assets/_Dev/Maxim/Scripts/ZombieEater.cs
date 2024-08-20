@@ -6,13 +6,10 @@ public class ZombieEater : MonoBehaviour
     public ZombieCreator ZombieCreator;
 
     [SerializeField]
-    private Animator zombieAnimator;
+    private Zombie zombie;
 
     [SerializeField]
     private LayerMask eatableMask;
-
-    [SerializeField]
-    private float damage = 10f;
 
     [SerializeField]
     private Vector2 scanOrigin = Vector2.zero;
@@ -37,6 +34,7 @@ public class ZombieEater : MonoBehaviour
         var waitTime = new WaitForSeconds(0.125f);
         while (true)
         {
+            yield return waitTime;
             var count = Physics2D.OverlapCircle(
                 transform.position + (Vector3)scanOrigin,
                 radius,
@@ -46,27 +44,20 @@ public class ZombieEater : MonoBehaviour
             if (count > 0)
             {
                 var eatableByZombie = _targets[0].GetComponentInParent<EatableByZombie>();
-                if (eatableByZombie)
+                if (eatableByZombie && !eatableByZombie.IsEated)
                 {
-                    zombieAnimator.Play("attack");
-                    yield return new WaitForSeconds(0.5f);
+                    zombie.StartAttacking();
+                    yield return new WaitForSeconds(0.6f);
 
-                    if (_targets[0] != null)
+                    if (_targets[0] != null && !eatableByZombie.IsEated && eatableByZombie.Eated())
                     {
-                        if (
-                            Vector2.Distance(transform.position, _targets[0].transform.position)
-                            <= radius + 0.1f
-                        )
-                        {
-                            ZombieCreator.CreateZombie(_targets[0].transform.position);
-                            eatableByZombie.Eated();
-                        }
+                        ZombieCreator.CreateZombie(_targets[0].transform.position);
                     }
 
                     yield return new WaitForSeconds(0.3f);
+                    zombie.StopAttacking();
                 }
             }
-            yield return waitTime;
         }
     }
 

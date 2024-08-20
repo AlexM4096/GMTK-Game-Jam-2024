@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3856748665776916333}
   - component: {fileID: 2701305413133828547}
   - component: {fileID: 1284188830876877960}
-  - component: {fileID: 5942863810638805043}
+  - component: {fileID: 2990561912952362829}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -77,11 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1114181afe301254eb3e382ff349bf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DestinationSetter>k__BackingField: {fileID: 5942863810638805043}
+  <Target>k__BackingField: {fileID: 0}
   <Sprite>k__BackingField: {fileID: 4820005108589807228}
   <Animator>k__BackingField: {fileID: 6965685419435236176}
   <AiPath>k__BackingField: {fileID: 1284188830876877960}
-  <ZombieEater>k__BackingField: {fileID: 6345804183312365530}
+  <ZombieEater>k__BackingField: {fileID: 2990561912952362829}
 --- !u!114 &2701305413133828547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &5942863810638805043
+--- !u!114 &2990561912952362829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,11 +161,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3607564089969338485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Script: {fileID: 11500000, guid: 794c8dbdf92b36247a8e0975d8442fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
+  ZombieCreator: {fileID: 0}
+  zombie: {fileID: 3856748665776916333}
+  eatableMask:
+    serializedVersion: 2
+    m_Bits: 256
+  scanOrigin: {x: 0, y: 0.5}
+  radius: 0.5
+  IsScanActive: 1
 --- !u!1 &7913886722661252508
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,9 +313,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2114794489872647306}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6345804183312365530}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 72acd60dc1b43694989276233699ec4e, type: 3}
 --- !u!1 &1155458580151566832 stripped
 GameObject:
@@ -355,27 +358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6965685419435236176}
---- !u!114 &6345804183312365530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155458580151566832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 794c8dbdf92b36247a8e0975d8442fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ZombieCreator: {fileID: 0}
-  zombieAnimator: {fileID: 6965685419435236176}
-  eatableMask:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 10
-  scanOrigin: {x: 0, y: 0.33}
-  radius: 0.8
-  IsScanActive: 1
 --- !u!4 &2154121380249676181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 72acd60dc1b43694989276233699ec4e, type: 3}

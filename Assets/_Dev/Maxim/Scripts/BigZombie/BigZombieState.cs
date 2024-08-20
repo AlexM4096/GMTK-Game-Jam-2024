@@ -28,7 +28,6 @@ public partial class BigZombieAbility
         public override void OnEnter()
         {
             _mainZombie.ZombieEater.StopScan();
-            _zombieGroup.HideZombies();
 
             _abilityStatus.ActiveRemaining = Mathf.Min(
                 _abilityConfig.StartAbilityDuration
@@ -68,8 +67,6 @@ public partial class BigZombieAbility
         {
             _mainZombie.ZombieEater.StartScan();
             _abilityStatus.IsActive = false;
-            _zombieGroup.ShowZombies();
-            _zombieGroup.EnableScan();
         }
     }
 }

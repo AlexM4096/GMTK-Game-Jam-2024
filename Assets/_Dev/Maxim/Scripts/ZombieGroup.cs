@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -20,8 +19,6 @@ public class ZombieGroup : MonoBehaviour
 
     private Transform[] _zombiePoints = new Transform[0];
 
-    private void Start() { }
-
     public void AddZombieToGroup(Zombie zombie)
     {
         _zombies.Add(zombie);
@@ -42,33 +39,22 @@ public class ZombieGroup : MonoBehaviour
     }
 
     [ContextMenu("Move all zombies to center")]
-    public void MoveAllZombiesToCenter()
+    public void MoveAllZombiesToBigZombie()
     {
         for (int i = 0; i < _zombies.Count; i++)
         {
-            _zombies[i].DestinationSetter.target = offCenter;
+            _zombies[i].Target = offCenter;
+            _zombies[i].GoToBigZombie();
         }
     }
 
     [ContextMenu("Move all zombies to their points")]
     public void MoveAllZombiesToTheirPoints()
     {
-        SetZombieOnPoints();
-    }
-
-    public void HideZombies()
-    {
-        for (int i = 0; i < _zombies.Count; i++)
+        for (int i = 0; i < _zombiePoints.Length; i++)
         {
-            _zombies[i].Sprite.gameObject.SetActive(false);
-        }
-    }
-
-    public void ShowZombies()
-    {
-        for (int i = 0; i < _zombies.Count; i++)
-        {
-            _zombies[i].Sprite.gameObject.SetActive(true);
+            _zombies[i].Target = _zombiePoints[i];
+            _zombies[i].GoFromBigZombie();
         }
     }
 
@@ -76,7 +62,7 @@ public class ZombieGroup : MonoBehaviour
     {
         for (int i = 0; i < _zombiePoints.Length; i++)
         {
-            _zombies[i].DestinationSetter.target = _zombiePoints[i];
+            _zombies[i].Target = _zombiePoints[i];
         }
     }
 
@@ -88,10 +74,5 @@ public class ZombieGroup : MonoBehaviour
     public int GetReachedEndOfPath()
     {
         return _zombies.Count(z => z.AiPath.reachedEndOfPath);
-    }
-
-    public void EnableScan()
-    {
-        _zombies.ForEach(z => z.GetComponentInChildren<ZombieEater>().StartScan());
     }
 }

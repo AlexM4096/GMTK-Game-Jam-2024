@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class ZombieCreator : MonoBehaviour
@@ -27,31 +26,13 @@ public class ZombieCreator : MonoBehaviour
         {
             CreateZombie();
         }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            zombieGroup.MoveAllZombiesToTheirPoints();
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            zombieGroup.MoveAllZombiesToCenter();
-        }
     }
 #endif
 
     [ContextMenu("Create Zombie")]
     public void CreateZombie()
     {
-        var createdZombie = Instantiate(zombie);
-        // createdZombie.Sprite.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-        zombieGroup.AddZombieToGroup(createdZombie);
-
-        var zombieEater = createdZombie.GetComponentInChildren<ZombieEater>();
-        if (zombieEater != null)
-        {
-            zombieEater.ZombieCreator = this;
-        }
+        CreateZombie(Vector3.zero);
     }
 
     public void CreateZombie(Vector3 position)

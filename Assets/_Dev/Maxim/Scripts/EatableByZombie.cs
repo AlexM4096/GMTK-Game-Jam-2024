@@ -3,11 +3,19 @@ using UnityEngine;
 public class EatableByZombie : MonoBehaviour
 {
     [SerializeField]
-    private float health;
+    private int health = 1;
 
-    public void Eated()
+    public bool IsEated => health <= 0;
+
+    public bool Eated()
     {
-        Destroy(gameObject);
+        health -= 1;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
         // TODO Possibly play death animation
     }
 }

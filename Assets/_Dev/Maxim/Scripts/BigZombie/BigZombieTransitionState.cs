@@ -30,7 +30,7 @@ public partial class BigZombieAbility
         public override void OnEnter()
         {
             _mainZombie.Sprite.sortingOrder += 1;
-            _zombieGroup.MoveAllZombiesToCenter();
+            _zombieGroup.MoveAllZombiesToBigZombie();
             _playerController.IsActive = false;
         }
 
