@@ -198,6 +198,9 @@ PrefabInstance:
       addedObject: {fileID: 6831472253374506951}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 3562658855612912549}
+    - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2468477543645800765}
     - targetCorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
@@ -209,6 +212,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3607564089969338485, guid: dc8f0faa552426249b09952b4288109b, type: 3}
   m_PrefabInstance: {fileID: 8770222997848953462}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3562658855612912549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451241437124131331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dc18488e1e16e47aabd7a0b5a1fba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainZombie: {fileID: 5491008501929465115}
+  playerController: {fileID: 0}
+  zombieGroup: {fileID: 0}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2468477543645800765
 MonoBehaviour:
   m_ObjectHideFlags: 0

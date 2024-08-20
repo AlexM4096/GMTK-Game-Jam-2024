@@ -29,7 +29,6 @@ public class PointsGenerator : MonoBehaviour
 
         if (numberOfPoints <= 0)
         {
-            Debug.LogWarning("Number of points must be greater than 0");
             return Array.Empty<Transform>();
         }
 

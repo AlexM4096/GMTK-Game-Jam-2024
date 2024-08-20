@@ -33,9 +33,7 @@ public class ZombieGroup : MonoBehaviour
 
         zombie.Health.DeathEvent += () =>
         {
-            RemoveZombieFromGroup(zombie);
-            Instantiate(zombieCorpse, zombie.transform.position, Quaternion.identity);
-            Destroy(zombie.gameObject);
+            KillZombie(zombie);
         };
 
         if (zombiesContainer != null)
@@ -87,5 +85,22 @@ public class ZombieGroup : MonoBehaviour
     public int GetReachedEndOfPath()
     {
         return _zombies.Count(z => z.AiPath.reachedEndOfPath);
+    }
+
+    public void KillZombie(Zombie zombie)
+    {
+        RemoveZombieFromGroup(zombie);
+        Instantiate(zombieCorpse, zombie.transform.position, Quaternion.identity);
+        Destroy(zombie.gameObject);
+    }
+
+    public void KillAllZombiesInGroup()
+    {
+        var zombies = _zombies.ToArray();
+        for (int i = 0; i < zombies.Length; i++)
+        {
+            KillZombie(zombies[i]);
+        }
+        _zombies.Clear();
     }
 }
