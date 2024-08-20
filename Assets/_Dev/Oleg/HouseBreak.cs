@@ -21,6 +21,7 @@ public class HouseBreak : MonoBehaviour, IDamageable
     void Start()
     {
         _material = GetComponent<SpriteRenderer>().material;
+      
         _health = maxHealth;
     }
 
@@ -38,6 +39,9 @@ public class HouseBreak : MonoBehaviour, IDamageable
             _isDestroyed = true;
             AudioManager.PlaySound(AudioLibrarySounds.HouseDestroy);
             onHouseDestroyed?.Invoke();
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            transform.GetChild(0).gameObject.SetActive(true);
         }
         _material.SetFloat("_Damage", 1f - _health / maxHealth);
     }
